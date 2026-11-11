@@ -1,6 +1,16 @@
+import { handleDemoRequest, createDemoEmergencyWebSocket } from './demoData';
+
 // ECMS Centralized API & Real-time WebSocket Client
 const BASE_URL = 'http://localhost:8000/api/v1';
 const WS_URL = 'ws://localhost:8000/ws/emergency';
+
+function isLocalHost() {
+  if (typeof window === 'undefined') return false;
+  const host = window.location.hostname;
+  return host === 'localhost' || host === '127.0.0.1';
+}
+
+let useDemoFallback = !isLocalHost();
 
 function getStoredToken() {
   return localStorage.getItem('ecms_token') || '';
@@ -29,6 +39,10 @@ export function getStoredUser() {
 }
 
 async function request(endpoint, options = {}) {
+  if (useDemoFallback) {
+    return handleDemoRequest(endpoint, options);
+  }
+
   const token = getStoredToken();
   const headers = {
     'Content-Type': 'application/json',
@@ -39,10 +53,17 @@ async function request(endpoint, options = {}) {
     headers['Authorization'] = `Bearer ${token}`;
   }
 
-  const response = await fetch(`${BASE_URL}${endpoint}`, {
-    ...options,
-    headers,
-  });
+  let response;
+  try {
+    response = await fetch(`${BASE_URL}${endpoint}`, {
+      ...options,
+      headers,
+    });
+  } catch (networkErr) {
+    // Backend server is offline locally -> seamlessly fall back to built-in demo store
+    useDemoFallback = true;
+    return handleDemoRequest(endpoint, options);
+  }
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({}));
@@ -165,13 +186,25 @@ export const api = {
   getAuditLogs: () => request('/analytics/audit-logs'),
 };
 
-// WebSocket Service with Auto-Reconnect
+// WebSocket Service with Auto-Reconnect + Static Demo Fallback
 export function createEmergencyWebSocket(onMessage, onStatusChange) {
+  if (useDemoFallback) {
+    return createDemoEmergencyWebSocket(onMessage, onStatusChange);
+  }
+
   let socket = null;
   let reconnectTimer = null;
   let isClosedManually = false;
+  let demoBridge = null;
 
   function connect() {
+    if (useDemoFallback) {
+      if (!demoBridge) {
+        demoBridge = createDemoEmergencyWebSocket(onMessage, onStatusChange);
+      }
+      return;
+    }
+
     try {
       socket = new WebSocket(WS_URL);
 
@@ -196,13 +229,19 @@ export function createEmergencyWebSocket(onMessage, onStatusChange) {
 
       socket.onclose = () => {
         if (socket && socket.pingInterval) clearInterval(socket.pingInterval);
+        if (useDemoFallback) {
+          if (!demoBridge) {
+            demoBridge = createDemoEmergencyWebSocket(onMessage, onStatusChange);
+          }
+          return;
+        }
         if (onStatusChange) onStatusChange('disconnected');
         if (!isClosedManually) {
           reconnectTimer = setTimeout(connect, 3000);
         }
       };
 
-      socket.onerror = (err) => {
+      socket.onerror = () => {
         if (onStatusChange) onStatusChange('error');
       };
     } catch (err) {
@@ -216,6 +255,7 @@ export function createEmergencyWebSocket(onMessage, onStatusChange) {
 
   return {
     send: (msg) => {
+      if (demoBridge) return demoBridge.send(msg);
       if (socket && socket.readyState === WebSocket.OPEN) {
         socket.send(typeof msg === 'string' ? msg : JSON.stringify(msg));
       }
@@ -223,6 +263,7 @@ export function createEmergencyWebSocket(onMessage, onStatusChange) {
     disconnect: () => {
       isClosedManually = true;
       if (reconnectTimer) clearTimeout(reconnectTimer);
+      if (demoBridge) demoBridge.disconnect();
       if (socket) {
         if (socket.pingInterval) clearInterval(socket.pingInterval);
         socket.close();
