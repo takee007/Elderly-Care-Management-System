@@ -21,6 +21,8 @@
     border-bottom: 1px solid #334155;
     padding: 12px 24px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     justify-content: space-between;
     align-items: center;
   }
@@ -62,6 +64,7 @@
   }
   .actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
   }
   .action-btn {
@@ -95,6 +98,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    flex-shrink: 0;
   }
   .screen-item {
     padding: 10px 12px;
@@ -118,6 +122,9 @@
     background: #0F766E;
     color: #FFFFFF;
   }
+  .screen-item.hidden {
+    display: none;
+  }
   .screen-badge {
     width: 22px;
     height: 22px;
@@ -129,6 +136,7 @@
     justify-content: center;
     font-size: 11px;
     font-weight: bold;
+    flex-shrink: 0;
   }
   .screen-item.active .screen-badge {
     background: #134E4A;
@@ -151,6 +159,12 @@
     background: #FFFFFF;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
   }
+  @media (max-width: 900px) {
+    body { height: auto; min-height: 100vh; overflow: auto; }
+    .viewer-container { flex-direction: column; overflow: visible; }
+    .screen-nav { width: 100%; max-height: 220px; border-right: none; border-bottom: 1px solid #334155; }
+    .frame-viewport { height: 75vh; padding: 10px; }
+  }
 </style>
 </head>
 <body>
@@ -167,6 +181,9 @@
   </div>
 
   <div class="actions">
+    <a href="requirements_specification_portal.html" target="_blank" class="action-btn">
+      📋 SRS &amp; Docs Portal
+    </a>
     <a href="Elderly_Care_Management_System_Low_Fidelity_Design.pdf" target="_blank" class="action-btn">
       📄 Low-Fi PDF
     </a>
@@ -181,62 +198,57 @@
     <div style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#64748B; font-weight:700; margin-bottom:4px;">
       Interface Sequence
     </div>
-    <div class="screen-item active" onclick="gotoPage(0)">
-      <span class="screen-badge">★</span> Cover & Title Page
+    <div class="screen-item active" data-low="0" data-high="0" onclick="selectScreen(this)">
+      <span class="screen-badge">★</span> Cover &amp; Title Page
     </div>
-    <div class="screen-item" onclick="gotoPage(1)">
-      <span class="screen-badge">0</span> Architecture & Sequence Flow
+    <div class="screen-item hidden" id="navDesignTokens" data-high="1" onclick="selectScreen(this)">
+      <span class="screen-badge">DS</span> Design System &amp; Tokens
     </div>
-    <div class="screen-item" onclick="gotoPage(2)">
+    <div class="screen-item" data-low="1" data-high="2" onclick="selectScreen(this)">
+      <span class="screen-badge">0</span> Architecture &amp; Sequence Flow
+    </div>
+    <div class="screen-item" data-low="2" data-high="3" onclick="selectScreen(this)">
       <span class="screen-badge">1</span> Screen 1: Role Authentication
     </div>
-    <div class="screen-item" onclick="gotoPage(3)">
+    <div class="screen-item" data-low="3" data-high="4" onclick="selectScreen(this)">
       <span class="screen-badge">2</span> Screen 2: Central Dashboard
     </div>
-    <div class="screen-item" onclick="gotoPage(4)">
+    <div class="screen-item" data-low="4" data-high="5" onclick="selectScreen(this)">
       <span class="screen-badge">3</span> Screen 3: Elderly Profile
     </div>
-    <div class="screen-item" onclick="gotoPage(5)">
+    <div class="screen-item" data-low="5" data-high="6" onclick="selectScreen(this)">
       <span class="screen-badge">4</span> Screen 4: Medicine Schedule
     </div>
-    <div class="screen-item" onclick="gotoPage(6)">
+    <div class="screen-item" data-low="6" data-high="7" onclick="selectScreen(this)">
       <span class="screen-badge">5</span> Screen 5: Add Medication Form
     </div>
-    <div class="screen-item" onclick="gotoPage(7)">
+    <div class="screen-item" data-low="7" data-high="8" onclick="selectScreen(this)">
       <span class="screen-badge">6</span> Screen 6: Doctor Appointments
     </div>
-    <div class="screen-item" onclick="gotoPage(8)">
+    <div class="screen-item" data-low="8" data-high="9" onclick="selectScreen(this)">
       <span class="screen-badge">7</span> Screen 7: Daily Care Routine
     </div>
-    <div class="screen-item" onclick="gotoPage(9)">
+    <div class="screen-item" data-low="9" data-high="10" onclick="selectScreen(this)">
       <span class="screen-badge">8</span> Screen 8: Caregiver Shift Log
     </div>
-    <div class="screen-item" onclick="gotoPage(10)">
+    <div class="screen-item" data-low="10" data-high="11" onclick="selectScreen(this)">
       <span class="screen-badge">9</span> Screen 9: Instant Emergency SOS
     </div>
   </div>
 
   <div class="frame-viewport">
-    <iframe id="previewFrame" src="low_fidelity_design.html"></iframe>
+    <iframe id="previewFrame" src="low_fidelity_design.html" title="ECMS Design Preview"></iframe>
   </div>
 </div>
 
 <script>
   let currentMode = 'low';
-  let currentPage = 0;
+  let activeElement = document.querySelector('.screen-item.active');
 
-  function setMode(mode) {
-    currentMode = mode;
-    document.getElementById('btnLowFi').classList.toggle('active', mode === 'low');
-    document.getElementById('btnHighFi').classList.toggle('active', mode === 'high');
-    const iframe = document.getElementById('previewFrame');
-    iframe.src = (mode === 'low' ? 'low_fidelity_design.html' : 'high_fidelity_design.html');
-  }
-
-  function gotoPage(index) {
-    currentPage = index;
-    const items = document.querySelectorAll('.screen-item');
-    items.forEach((item, i) => item.classList.toggle('active', i === index));
+  function scrollToActivePage() {
+    if (!activeElement) return;
+    const rawIdx = currentMode === 'low' ? activeElement.dataset.low : activeElement.dataset.high;
+    const index = rawIdx !== undefined ? parseInt(rawIdx, 10) : 0;
     const iframe = document.getElementById('previewFrame');
     try {
       const pages = iframe.contentWindow.document.querySelectorAll('.page');
@@ -246,6 +258,32 @@
     } catch (e) {
       console.log(e);
     }
+  }
+
+  function setMode(mode) {
+    currentMode = mode;
+    document.getElementById('btnLowFi').classList.toggle('active', mode === 'low');
+    document.getElementById('btnHighFi').classList.toggle('active', mode === 'high');
+
+    const tokenItem = document.getElementById('navDesignTokens');
+    tokenItem.classList.toggle('hidden', mode === 'low');
+    if (mode === 'low' && activeElement === tokenItem) {
+      const cover = document.querySelector('.screen-item');
+      document.querySelectorAll('.screen-item').forEach(el => el.classList.remove('active'));
+      cover.classList.add('active');
+      activeElement = cover;
+    }
+
+    const iframe = document.getElementById('previewFrame');
+    iframe.onload = () => scrollToActivePage();
+    iframe.src = (mode === 'low' ? 'low_fidelity_design.html' : 'high_fidelity_design.html');
+  }
+
+  function selectScreen(el) {
+    document.querySelectorAll('.screen-item').forEach(item => item.classList.remove('active'));
+    el.classList.add('active');
+    activeElement = el;
+    scrollToActivePage();
   }
 </script>
 
