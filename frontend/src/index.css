@@ -103,7 +103,7 @@ body::before {
   bottom: 0;
   background-image: 
     linear-gradient(180deg, rgba(11, 17, 32, 0.86) 0%, rgba(11, 17, 32, 0.94) 100%),
-    url('/elderly_care_bg.webp');
+    url('./assets/elderly_care_bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
