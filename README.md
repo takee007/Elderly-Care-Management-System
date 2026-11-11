@@ -4,6 +4,13 @@ Full-stack geriatric healthcare operations platform with role-based portals, rea
 
 ---
 
+## Live Design & Documentation (GitHub Pages)
+
+- **Interactive Dual-Fidelity Design Viewer (Low-Fi & High-Fi):** https://takee007.github.io/Elderly-Care-Management-System/
+- **Requirements & SRS Documentation Portal:** https://takee007.github.io/Elderly-Care-Management-System/requirements_specification_portal.html
+
+---
+
 ## Key Capabilities
 
 - **Role-Based Access Control (5 Portals):**
