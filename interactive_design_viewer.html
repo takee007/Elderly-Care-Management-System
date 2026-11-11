@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elderly Care Management System - Interactive Design Viewer</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #0F172A;
+    color: #F8FAFC;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  header {
+    background: #1E293B;
+    border-bottom: 1px solid #334155;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .title-group h1 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #5EEAD4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .title-group p {
+    font-size: 12px;
+    color: #94A3B8;
+  }
+  .mode-switch {
+    display: flex;
+    background: #0F172A;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px;
+  }
+  .mode-btn {
+    background: transparent;
+    border: none;
+    color: #94A3B8;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .mode-btn.active {
+    background: #0D9488;
+    color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+  .action-btn {
+    background: #334155;
+    color: #F8FAFC;
+    border: 1px solid #475569;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+  .action-btn:hover {
+    background: #475569;
+  }
+  .viewer-container {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+  .screen-nav {
+    width: 280px;
+    background: #1E293B;
+    border-right: 1px solid #334155;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .screen-item {
+    padding: 10px 12px;
+    background: #0F172A;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .screen-item:hover {
+    border-color: #0D9488;
+    background: #132337;
+  }
+  .screen-item.active {
+    border-color: #14B8A6;
+    background: #0F766E;
+    color: #FFFFFF;
+  }
+  .screen-badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #334155;
+    color: #5EEAD4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .screen-item.active .screen-badge {
+    background: #134E4A;
+    color: #FFFFFF;
+  }
+  .frame-viewport {
+    flex: 1;
+    background: #090D16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    background: #FFFFFF;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title-group">
+    <h1>🩺 Elderly Care Management System</h1>
+    <p>Student: Farzana Sadia Takee (ID: 2211175) • Dual Fidelity Design Viewer</p>
+  </div>
+
+  <div class="mode-switch">
+    <button class="mode-btn active" id="btnLowFi" onclick="setMode('low')">📝 Low-Fidelity (Paper Wireframe)</button>
+    <button class="mode-btn" id="btnHighFi" onclick="setMode('high')">✨ High-Fidelity (Figma UI)</button>
+  </div>
+
+  <div class="actions">
+    <a href="Elderly_Care_Management_System_Low_Fidelity_Design.pdf" target="_blank" class="action-btn">
+      📄 Low-Fi PDF
+    </a>
+    <a href="Elderly_Care_Management_System_High_Fidelity_Design.pdf" target="_blank" class="action-btn" style="background:#0D9488; border-color:#14B8A6;">
+      📄 High-Fi PDF
+    </a>
+  </div>
+</header>
+
+<div class="viewer-container">
+  <div class="screen-nav">
+    <div style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#64748B; font-weight:700; margin-bottom:4px;">
+      Interface Sequence
+    </div>
+    <div class="screen-item active" onclick="gotoPage(0)">
+      <span class="screen-badge">★</span> Cover & Title Page
+    </div>
+    <div class="screen-item" onclick="gotoPage(1)">
+      <span class="screen-badge">0</span> Architecture & Sequence Flow
+    </div>
+    <div class="screen-item" onclick="gotoPage(2)">
+      <span class="screen-badge">1</span> Screen 1: Role Authentication
+    </div>
+    <div class="screen-item" onclick="gotoPage(3)">
+      <span class="screen-badge">2</span> Screen 2: Central Dashboard
+    </div>
+    <div class="screen-item" onclick="gotoPage(4)">
+      <span class="screen-badge">3</span> Screen 3: Elderly Profile
+    </div>
+    <div class="screen-item" onclick="gotoPage(5)">
+      <span class="screen-badge">4</span> Screen 4: Medicine Schedule
+    </div>
+    <div class="screen-item" onclick="gotoPage(6)">
+      <span class="screen-badge">5</span> Screen 5: Add Medication Form
+    </div>
+    <div class="screen-item" onclick="gotoPage(7)">
+      <span class="screen-badge">6</span> Screen 6: Doctor Appointments
+    </div>
+    <div class="screen-item" onclick="gotoPage(8)">
+      <span class="screen-badge">7</span> Screen 7: Daily Care Routine
+    </div>
+    <div class="screen-item" onclick="gotoPage(9)">
+      <span class="screen-badge">8</span> Screen 8: Caregiver Shift Log
+    </div>
+    <div class="screen-item" onclick="gotoPage(10)">
+      <span class="screen-badge">9</span> Screen 9: Instant Emergency SOS
+    </div>
+  </div>
+
+  <div class="frame-viewport">
+    <iframe id="previewFrame" src="low_fidelity_design.html"></iframe>
+  </div>
+</div>
+
+<script>
+  let currentMode = 'low';
+  let currentPage = 0;
+
+  function setMode(mode) {
+    currentMode = mode;
+    document.getElementById('btnLowFi').classList.toggle('active', mode === 'low');
+    document.getElementById('btnHighFi').classList.toggle('active', mode === 'high');
+    const iframe = document.getElementById('previewFrame');
+    iframe.src = (mode === 'low' ? 'low_fidelity_design.html' : 'high_fidelity_design.html');
+  }
+
+  function gotoPage(index) {
+    currentPage = index;
+    const items = document.querySelectorAll('.screen-item');
+    items.forEach((item, i) => item.classList.toggle('active', i === index));
+    const iframe = document.getElementById('previewFrame');
+    try {
+      const pages = iframe.contentWindow.document.querySelectorAll('.page');
+      if (pages && pages[index]) {
+        pages[index].scrollIntoView({ behavior: 'smooth' });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+</script>
+
+</body>
+</html>
