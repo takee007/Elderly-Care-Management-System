@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Software Requirement Specification (SRS) - Elderly Care Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+<style>
+  :root {
+    --primary: #0D9488;
+    --primary-dark: #0F766E;
+    --primary-light: #CCFBF1;
+    --slate-900: #0F172A;
+    --slate-800: #1E293B;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-200: #E2E8F0;
+    --slate-100: #F1F5F9;
+    --slate-50: #F8FAFC;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 18mm 16mm 20mm 16mm;
+    @bottom-center {
+      content: counter(page);
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #FFFFFF;
+    color: var(--slate-800);
+    line-height: 1.6;
+    padding: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+    font-size: 14px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Top Academic Header Banner */
+  .doc-banner {
+    background: linear-gradient(135deg, #0F172A, #1E293B);
+    color: white;
+    padding: 20px 24px;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    border-left: 6px solid #0D9488;
+  }
+
+  .doc-banner h2 {
+    font-size: 18px;
+    color: #5EEAD4;
+    font-weight: 800;
+    margin-bottom: 4px;
+    border: none;
+    padding: 0;
+  }
+
+  .doc-banner p {
+    font-size: 12px;
+    color: #94A3B8;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Markdown Typography */
+  h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--slate-900);
+    border-bottom: 2px solid #CBD5E1;
+    padding-bottom: 8px;
+    margin-top: 28px;
+    margin-bottom: 14px;
+    page-break-after: avoid;
+  }
+
+  h1:first-of-type {
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0F766E;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 5px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--slate-900);
+    margin-top: 18px;
+    margin-bottom: 8px;
+    page-break-after: avoid;
+  }
+
+  h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--slate-700);
+    margin-top: 14px;
+    margin-bottom: 6px;
+    page-break-after: avoid;
+  }
+
+  p {
+    margin-bottom: 12px;
+    color: #334155;
+    line-height: 1.65;
+  }
+
+  ul, ol {
+    margin-left: 22px;
+    margin-bottom: 14px;
+    color: #334155;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 20px;
+    font-size: 12.5px;
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  th {
+    background: #F1F5F9;
+    color: var(--slate-900);
+    font-weight: 700;
+    text-align: left;
+    padding: 8px 10px;
+    border: 1px solid #CBD5E1;
+  }
+
+  td {
+    padding: 7px 10px;
+    border: 1px solid #CBD5E1;
+    color: var(--slate-700);
+  }
+
+  tr:nth-child(even) td {
+    background: #F8FAFC;
+  }
+
+  blockquote {
+    border-left: 4px solid #0D9488;
+    background: #F0FDFA;
+    padding: 8px 14px;
+    margin: 14px 0;
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+    color: #0F766E;
+  }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    background: #F1F5F9;
+    padding: 2px 5px;
+    border-radius: 4px;
+    color: #0F766E;
+  }
+
+  pre {
+    background: #0F172A;
+    color: #F8FAFC;
+    padding: 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 14px 0;
+  }
+
+  pre code {
+    background: transparent;
+    color: #38BDF8;
+    padding: 0;
+  }
+
+  .mermaid {
+    margin: 20px 0;
+    padding: 16px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    page-break-inside: avoid;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #E2E8F0;
+    margin: 20px 0;
+  }
+
+  @media print {
+    body {
+      padding: 0;
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="doc-banner">
+  <h2>Elderly Care Management System</h2>
+  <p><strong>Student:</strong> Farzana Sadia Takee (ID: 2211175) &bull; <strong>Course:</strong> Software Engineering / Requirements Engineering &bull; <strong>Date:</strong> October 2026</p>
+</div>
+
+<div id="content"></div>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'neutral',
+    securityLevel: 'loose'
+  });
+
+  const rawMd = '# Software Requirement Specification (SRS)\n## Elderly Care Management System\n\n---\n\n**Standard:** IEEE Std 830-1998 / ISO/IEC/IEEE 29148:2018 Compliant  \n**Student Name:** Farzana Sadia Takee  \n**Student ID:** 2211175  \n**Course:** Software Engineering / Requirements Engineering  \n**Project Title:** Elderly Care Management System  \n**Submission Date:** October 2026  \n**Document Version:** 1.0 (Final Release)  \n\n---\n\n## Table of Contents\n1. **Introduction**\n   - 1.1 Purpose\n   - 1.2 Document Conventions & Notation\n   - 1.3 Intended Audience & Reading Suggestions\n   - 1.4 Product Scope\n   - 1.5 References\n2. **Overall Description**\n   - 2.1 Product Perspective & Context\n   - 2.2 Product Functions Overview\n   - 2.3 User Classes and Characteristics\n   - 2.4 Operating Environment\n   - 2.5 Design and Implementation Constraints\n   - 2.6 User Documentation\n   - 2.7 Assumptions and Dependencies\n3. **External Interface Requirements**\n   - 3.1 User Interfaces (UI)\n   - 3.2 Hardware Interfaces\n   - 3.3 Software Interfaces\n   - 3.4 Communications Interfaces\n4. **System Features & Detailed Functional Requirements**\n   - 4.1 Module 1: Role-Based Authentication & Authorization (FR-AUTH)\n   - 4.2 Module 2: Elderly Profile & Clinical Baseline Management (FR-PROF)\n   - 4.3 Module 3: Medication Management & Adherence Tracker (FR-MED)\n   - 4.4 Module 4: Doctor Appointment Scheduling & Clinic History (FR-APT)\n   - 4.5 Module 5: Daily Care Schedule & ADL Routine (FR-CARE)\n   - 4.6 Module 6: Caregiver Shift Handoff & Care Notes (FR-CG)\n   - 4.7 Module 7: Instant Emergency SOS & Paramedic Health Brief (FR-SOS)\n   - 4.8 Module 8: Central Family Dashboard & Live Audit Feed (FR-DASH)\n5. **Non-Functional Requirements (NFRs / Quality Attributes)**\n   - 5.1 Performance Requirements\n   - 5.2 Safety & Clinical Safety Requirements\n   - 5.3 Security Requirements & Health Data Protection\n   - 5.4 Software Quality Attributes (Reliability, Usability, Maintainability, Portability)\n6. **Requirements Traceability Matrix (RTM)**\n7. **Appendix: Glossary of Terms & Acronyms**\n\n---\n\n## 1. Introduction\n\n### 1.1 Purpose\nThis document constitutes the formal **Software Requirement Specification (SRS)** for the **Elderly Care Management System (ECMS)**. It provides a complete, unambiguous, and verifiable specification of all functional capabilities, external interfaces, performance thresholds, and non-functional quality constraints governing the development, deployment, and testing of the system.\n\n### 1.2 Document Conventions & Notation\n- Every requirement is uniquely numbered using the prefix **FR-** for Functional Requirements and **NFR-** for Non-Functional Requirements.\n- The standard RFC 2119 keyword definitions apply throughout this document:\n  - **SHALL / MUST:** Absolute, mandatory requirement for system compliance.\n  - **SHOULD:** Strongly recommended requirement that may be omitted only with explicit justification.\n  - **MAY:** Optional or future exploratory requirement.\n- Priority levels are indicated as **High (H)**, **Medium (M)**, or **Low (L)**.\n\n### 1.3 Intended Audience & Reading Suggestions\n- **Academic Evaluators / Course Instructors:** Review the adherence to IEEE 830 standards, architectural traceability, and domain rigor.\n- **System Architects & Software Developers:** Use Section 4 (System Features) and Section 3 (External Interfaces) to guide technical architecture and database schema implementation.\n- **Quality Assurance Engineers:** Utilize the formal inputs, outputs, and validation rules in Section 4 along with Section 6 (Traceability Matrix) to construct test cases.\n\n### 1.4 Product Scope\nThe **Elderly Care Management System** is a responsive, web-based digital care coordination platform. Its core objective is to prevent medication lapses, eliminate caregiver miscommunication, facilitate timely clinical consultations, and provide rapid emergency response for senior citizens living at home.\n- **In-Scope:**\n  - Multi-role authentication (Family Admin, Professional Caregiver, Elderly Senior, Doctor).\n  - Elderly demographic, baseline vital, and critical drug allergy management.\n  - Medication scheduling with visual pill cards, meal instructions, and 1-tap adherence logging.\n  - Doctor appointment tracking, reminders, and historical consultation records.\n  - Daily personal care checklists (Activities of Daily Living - ADLs).\n  - Digital caregiver shift handoff documentation and end-of-shift notes.\n  - Instant one-touch Emergency SOS speed dial (Ambulance, Hospital ER, Primary Doctor) with immediate Paramedic Health Brief and multi-channel SMS alert broadcast.\n  - Real-time family dashboard with visual compliance gauges.\n- **Out-of-Scope (Version 1.0):**\n  - Direct video streaming tele-consultations (deferred to v2.0).\n  - Physical IoT automated pill dispenser hardware robotics.\n  - Hospital billing and insurance claim settlement processing.\n\n### 1.5 References\n1. **IEEE Std 830-1998:** IEEE Recommended Practice for Software Requirements Specifications.\n2. **ISO/IEC/IEEE 29148:2018:** Systems and Software Engineering — Life Cycle Processes — Requirements Engineering.\n3. **W3C WCAG 2.1:** Web Content Accessibility Guidelines (Level AA Standard for Senior Accessibility).\n4. **Health Insurance Portability and Accountability Act (HIPAA) / GDPR:** Guidelines for Sensitive Personal Health Information (PHI) Security and Encryption.\n\n---\n\n## 2. Overall Description\n\n### 2.1 Product Perspective & Context\nThe Elderly Care Management System operates as a modern cloud-hosted web application accessible across desktop web browsers, wall-mounted or bedside tablets, and mobile smartphones. It serves as the single source of truth connecting the home environment directly with remote family members and attending clinical providers.\n\n```mermaid\ngraph TD\n    subgraph Home Environment\n        Senior[Elderly Senior / Tablet UI]\n        Caregiver[Caregiver / Mobile Web]\n    end\n\n    subgraph Remote Ecosystem\n        Family[Family Member / Desktop & Mobile]\n        Doctor[Doctor / Clinic Review]\n        Paramedic[Paramedic / Emergency Responders]\n    end\n\n    subgraph ECMS Cloud Core\n        AppServer[Application Server / REST & WebSocket Engine]\n        DB[(PostgreSQL / Health Data Store)]\n        Cron[Automated Alert & Notification Scheduler]\n    end\n\n    subgraph External Services\n        SMS[Telecom SMS Gateway / 999 Dispatch API]\n        Geo[Browser GPS & Mapping API]\n    end\n\n    Senior <-->|HTTPS / WSS| AppServer\n    Caregiver <-->|HTTPS / WSS| AppServer\n    Family <-->|HTTPS / WSS| AppServer\n    Doctor <-->|HTTPS| AppServer\n    Paramedic <-->|HTTPS Instant URL| AppServer\n\n    AppServer <--> DB\n    AppServer <--> Cron\n    Cron --> SMS\n    AppServer --> Geo\n```\n\n### 2.2 Product Functions Overview\n- **F-01 Identity & RBAC Management:** Secure multi-role access control with simplified senior pin-code authentication.\n- **F-02 Clinical Profile & Allergy Registry:** High-visibility master record of medical history, blood group, and fatal drug allergies.\n- **F-03 Medication Administration & Adherence Tracker:** Visual pill schedules, Before/After meal guidance, 1-tap taken/skipped logger, and overdue alerts.\n- **F-04 Doctor Appointment Management:** Chamber directory, appointment scheduling, reminders, and historical consultation logs.\n- **F-05 Activities of Daily Living (ADL) Care Plan:** Checklists for nutrition, hydration, hygiene, mobility, and vital signs monitoring.\n- **F-06 Caregiver Shift Handoff & Care Notes:** Structured digital handoff reports, vital sign verification, and family debriefings.\n- **F-07 Emergency SOS & Paramedic Medical Card:** Immediate 1-tap speed dialing for Ambulance/ER, live GPS pin sharing, and instant Paramedic Brief display.\n- **F-08 Central Family Monitoring Console:** Real-time visibility into the day’s care progress, adherence scores, and vital sign logs.\n\n### 2.3 User Classes and Characteristics\n\n| User Class | Technical Literacy | Operating Context | Primary System Interactions |\n| :--- | :--- | :--- | :--- |\n| **Family Member (Admin)** | High | Office desktop, laptop, smartphone. | Full administrative configuration, medication scheduling, appointment booking, reviewing adherence logs, emergency monitoring. |\n| **Professional Caregiver** | Moderate | Smartphone (Android/iOS) during active work shift. | Fast 1-tap marking of medication, checking off care routines, logging vitals (BP/sugar), submitting shift handoffs. |\n| **Elderly Senior Citizen** | Low to Moderate | Home tablet (10-inch) mounted in living room or bedroom. | Viewing large visual daily schedule, reading medication reminders, triggering emergency SOS button. |\n| **Doctor / Physician** | High | Clinic PC or tablet during 15-minute consultations. | Reviewing medication adherence history, inspecting vital trends, updating prescription notes. |\n| **Paramedic / ER Triage** | High (Medical) | Emergency response vehicle or emergency triage room. | Reading high-contrast Paramedic Brief (blood type, penicillin allergy, chronic conditions, contact numbers). |\n\n### 2.4 Operating Environment\n- **Client Platforms:** \n  - Modern web browsers: Google Chrome 110+, Microsoft Edge 110+, Apple Safari 16+, Mozilla Firefox 112+.\n  - Responsive viewports: Desktop (1920x1080, 1366x768), Tablet Landscape & Portrait (1024x768, 800x1280), Mobile (375x812, 412x915).\n- **Server Platform:** Node.js (v18+ LTS) or Python (v3.11+) hosted in standard cloud container environment.\n- **Database Engine:** Relational Database (PostgreSQL 14+ or MySQL 8.0+) with ACID transaction compliance.\n- **Network Protocol:** Encrypted HTTPS over TLS 1.3; Secure WebSockets (`wss://`) for live dashboard push updates.\n\n### 2.5 Design and Implementation Constraints\n- **Accessibility Compliance:** The system MUST strictly comply with **WCAG 2.1 Level AA** standards. Body text for senior viewports shall not be smaller than 18px; touch targets must measure at least 48x48 CSS pixels; color contrast ratios must exceed 4.5:1.\n- **Data Privacy & Security:** Sensitive health data (diagnoses, allergies, medication records) must be encrypted at rest using AES-256 and in transit using TLS 1.3.\n- **Offline Resilience:** The application client must cache today’s active medication schedule locally in Browser Storage (IndexedDB / LocalStorage) to allow viewing even during intermittent Wi-Fi drops.\n\n### 2.6 User Documentation & Onboarding\n- The system shall include an interactive "Senior Quick Guide" featuring large visual illustrations.\n- A "Caregiver 2-Minute Quick Reference Card" shall be printable directly from the administrative portal.\n\n### 2.7 Assumptions and Dependencies\n- **Network Availability:** While offline caching supports viewing, real-time family synchronization and SMS alerts depend on standard 4G/Wi-Fi internet access.\n- **Emergency Hardware Dialing:** Emergency speed-dial links rely on the standard `tel:` protocol supported by mobile devices and phone-enabled tablets.\n\n---\n\n## 3. External Interface Requirements\n\n### 3.1 User Interfaces (UI)\nThe user interface follows the design tokens established in the approved UI/UX specification:\n- **Color System:**\n  - Primary Brand: Teal (`#0D9488`, Dark `#0F766E`, Light `#CCFBF1`) representing calm, trustworthy clinical care.\n  - Emergency SOS: Vivid Rose / Crimson (`#E11D48`, Dark `#881337`, Light `#FFE4E6`) for rapid recognition.\n  - Neutral Backgrounds: Slate (`#F8FAFC`, `#F1F5F9`, `#1E293B`).\n  - Status Indicators: Emerald Green (`#059669`) for Taken/Completed; Amber (`#F59E0B`) for Pending/Skipped.\n- **Typography:** Modern, highly legible sans-serif fonts (`Plus Jakarta Sans` or `Inter`). Font sizes for senior viewports range from 18px (body) to 28px (headings).\n- **Touch Ergonomics:** High affordance cards with elevated shadows, prominent rounded buttons, and zero nested sub-menus.\n\n### 3.2 Hardware Interfaces\n- **Tablet / Touchscreen Support:** The application layout must adapt seamlessly to 10-inch Android or iPad tablets mounted at home bedside tables.\n- **Direct Dialing Hardware:** Mobile devices must support telephony hardware interfaces triggered via `tel:+880...` hyperlinks.\n\n### 3.3 Software Interfaces\n- **SMS Gateway API:** Integration with an external SMS gateway (e.g., Twilio, Infobip, or national telecom provider) to send high-priority SMS alerts for missed medication escalations and emergency SOS broadcasts.\n- **Geolocation API:** Standard W3C HTML5 Geolocation API (`navigator.geolocation`) to capture GPS latitude/longitude during emergency SOS activation.\n- **Web Push Notification Service:** W3C Push API / Apple APNs to deliver lock-screen reminder banners.\n\n### 3.4 Communications Interfaces\n- **HTTPS:** All client-server communication must occur over port 443 with TLS 1.3 encryption.\n- **WebSockets (WSS):** Persistent duplex connection over `wss://` to push immediate medication dispense confirmations and vital alerts to connected family dashboards without manual page refreshing.\n- **Data Format:** Standard RESTful JSON format for all API payloads.\n\n---\n\n## 4. System Features & Detailed Functional Requirements\n\n### 4.1 Module 1: Role-Based Authentication & Authorization (FR-AUTH)\n\n#### FR-AUTH-01: Multi-Role Account Authentication\n- **Description:** The system shall authenticate users into one of four distinct roles: Family Admin, Professional Caregiver, Elderly Senior, or Doctor.\n- **Inputs:** Username/Email and Password for Family Admin/Doctor; 4-digit Quick PIN for Caregiver and Senior.\n- **Processing Logic:**\n  1. System checks user identifier in `USERS` database table.\n  2. For passwords, system verifies against stored `bcrypt` hash.\n  3. For Quick PINs, system validates against encrypted profile PIN.\n  4. System issues an encrypted JWT (JSON Web Token) with claims: `userId`, `role`, `elderlyId`, `exp`.\n- **Outputs:** Authentication success redirects user to role dashboard; failure displays descriptive error message.\n- **Error Handling:** Account locks after 5 consecutive failed attempts for 15 minutes.\n\n#### FR-AUTH-02: Role-Based Access Control (RBAC) Enforcement\n- **Description:** The system shall restrict access to administrative functions based on user role.\n- **Business Rules:**\n  - Family Admin: Full Read/Write/Delete rights on all modules.\n  - Caregiver: Read rights on schedules; Write rights on dispensation logs, vital logs, and shift notes; No right to delete or alter prescription schedules.\n  - Senior: Read rights on today\'s schedule; 1-tap dispense confirm; Emergency SOS trigger.\n  - Doctor: Read rights on medical baseline, adherence history, and vital trends; Write rights on consultation notes.\n\n#### FR-AUTH-03: Session Management & Inactivity Timeout\n- **Description:** The system shall automatically terminate inactive administrative sessions after 30 minutes of inactivity while maintaining persistent active mode on designated home tablets.\n\n---\n\n### 4.2 Module 2: Elderly Profile & Clinical Baseline Management (FR-PROF)\n\n#### FR-PROF-01: Elderly Profile Creation & Modification\n- **Description:** The system shall maintain a master profile for each registered elderly individual.\n- **Inputs:** Full Name, Date of Birth, Gender, Blood Group, Home Address, GPS Latitude/Longitude, National ID, Primary Emergency Phone.\n- **Processing Logic:** System validates date of birth (must be >= 55 years for senior care), ensures blood group belongs to standard 8 types (A+, A-, B+, B-, AB+, AB-, O+, O-), and commits to database.\n- **Outputs:** Profile summary card visible on dashboard and emergency screens.\n\n#### FR-PROF-02: Critical Drug Allergy & Medical Baseline Registry\n- **Description:** The system shall record chronic ailments (e.g., Type 2 Diabetes, Hypertension) and explicitly highlight critical drug allergies (e.g., Penicillin, Sulfa drugs).\n- **Processing Logic:** Allergies are flagged as `HIGH_CRITICALITY` and permanently rendered in bold red banners across the profile, medication creation form, and emergency brief.\n\n#### FR-PROF-03: Medical Document Archival\n- **Description:** The system shall allow uploading and viewing PDF/JPEG copies of hospital discharge certificates, diagnostic test results, and ECG scans (max 10MB per file).\n\n---\n\n### 4.3 Module 3: Medication Management & Adherence Tracker (FR-MED)\n\n#### FR-MED-01: Medication Schedule Creation\n- **Description:** The system shall enable the Family Admin to configure detailed medication schedules.\n- **Inputs:** Medicine Brand Name (e.g., "Losartan"), Generic Name ("Losartan Potassium"), Dosage Strength ("50mg"), Dosage Form ("Tablet", "Capsule", "Syrup", "Drop"), Quantity ("1 tablet"), Frequency ("Once Daily", "Twice Daily", "Thrice Daily"), Scheduled Time(s) (HH:MM), Meal Relation ("Before Meal", "After Meal", "With Meal", "Empty Stomach"), Prescribing Doctor, Start Date, End Date.\n- **Outputs:** Active medication record added to schedule calendar.\n\n#### FR-MED-02: Visual Pill Identification Cards\n- **Description:** The system shall display distinct visual iconography for each scheduled medication, including pill shape (Round, Oval, Capsule, Liquid bottle) and color (White, Blue, Yellow, Pink), enabling elderly users and caregivers to recognize medications physically without reading fine text.\n\n#### FR-MED-03: 1-Tap Medication Dispensation Logging\n- **Description:** The system shall allow the Caregiver, Senior, or Family member to record medication intake with a single click.\n- **Inputs:** Tap on "Mark as Taken" button; optional note field.\n- **Processing Logic:** System registers exact server timestamp (`actual_time`), logs `logged_by_user_id`, and sets status to `TAKEN`.\n- **Outputs:** Green checkmark displayed; adherence progress bar updates immediately; WebSocket notification pushed to Family Admin.\n\n#### FR-MED-04: Medication Skipped / Refused Logging\n- **Description:** If a scheduled medication is not taken, the user shall mark it as skipped and select a mandatory reason.\n- **Inputs:** Reason dropdown: `Patient Refused`, `Patient Vomited/Nauseous`, `Fasting for Blood Test`, `Medication Out of Stock`, `Doctor Advised Pause`.\n- **Outputs:** Status updated to `SKIPPED` (Amber badge); instant alert dispatched to Family Admin.\n\n#### FR-MED-05: Automated Missed-Dose Escalation Engine\n- **Description:** The system shall monitor all scheduled doses. If a scheduled medication remains in `PENDING` status for more than 30 minutes past its scheduled time, the system shall trigger an automated escalation event.\n- **Processing Logic:** Background scheduler flags dose as `OVERDUE`, dispatches an automated SMS/Push notification to the Family Admin: *"ALERT: [Medicine Name] for [Elderly Name] was scheduled for [Time] and has not been confirmed."*\n\n---\n\n### 4.4 Module 4: Doctor Appointment Scheduling & Clinic History (FR-APT)\n\n#### FR-APT-01: Appointment Booking & Clinic Registration\n- **Description:** The system shall allow scheduling clinical appointments with doctors.\n- **Inputs:** Doctor Name, Medical Specialty (e.g., "Cardiologist", "Neurologist"), Hospital/Clinic Name, Chamber/Room Number, Appointment Date & Time, Patient Serial/Token Number, Reason for Consultation.\n- **Outputs:** Appointment card listed under "Upcoming Appointments" with countdown badge.\n\n#### FR-APT-02: Automated Appointment Reminders\n- **Description:** The system shall send automated reminders to both Family Admin and Caregiver at two intervals: 24 hours prior to appointment and 2 hours prior to appointment.\n\n#### FR-APT-03: Post-Visit Documentation & History Archival\n- **Description:** Upon completion of a medical visit, the system shall allow the user to mark the appointment as `Completed`, upload the newly issued prescription photo, and record the doctor’s recommended follow-up date.\n\n---\n\n### 4.5 Module 5: Daily Care Schedule & ADL Routine (FR-CARE)\n\n#### FR-CARE-01: Daily Activities of Daily Living (ADL) Checklist\n- **Description:** The system shall generate a structured daily checklist for non-medicinal health routines: Breakfast, Morning Walk, Hydration Target (1.5L - 2.0L), Afternoon Bath, Evening Rest, Dinner.\n- **Outputs:** Interactive checklist allowing caregivers to check off completed routines.\n\n#### FR-CARE-02: Vital Signs Recording & Boundary Checks\n- **Description:** The system shall record daily physiological vitals measured by the caregiver or senior.\n- **Inputs:** Systolic Blood Pressure (mmHg), Diastolic Blood Pressure (mmHg), Heart Rate / Pulse (bpm), Blood Sugar (mmol/L), Body Temperature (°F).\n- **Processing Logic:** System compares entered values against clinical reference boundaries:\n  - Systolic BP > 140 or < 90 -> Warning: Elevated/Low BP.\n  - Blood Glucose > 11.1 or < 4.0 -> Warning: Hyper/Hypoglycemia.\n- **Outputs:** Vital record saved; abnormal readings highlight in red and alert Family Admin.\n\n---\n\n### 4.6 Module 6: Caregiver Shift Handoff & Care Notes (FR-CG)\n\n#### FR-CG-01: End-of-Shift Summary Generation\n- **Description:** At the conclusion of a caregiver’s shift, the system shall auto-aggregate all medications dispensed, tasks completed, and vitals logged during that shift into an automated Handoff Report.\n\n#### FR-CG-02: Shift Notes & Handoff Signature Submission\n- **Description:** The outgoing caregiver shall enter free-text qualitative notes (e.g., physical mood, appetite, mobility difficulties) and record the name of the individual accepting handoff responsibility (e.g., incoming night caregiver or returning family member).\n- **Outputs:** Signed shift record permanently archived; summary sent to Family Dashboard.\n\n---\n\n### 4.7 Module 7: Instant Emergency SOS & Paramedic Health Brief (FR-SOS)\n\n#### FR-SOS-01: Rapid Emergency SOS Console Launch\n- **Description:** The system shall provide an omnipresent, high-contrast, red "EMERGENCY SOS" button on every screen header.\n- **Processing Logic:** When tapped, the system shall navigate to the Emergency Console in less than 500 milliseconds without requesting secondary confirmations or passwords.\n\n#### FR-SOS-02: One-Touch Emergency Speed Dialing\n- **Description:** The Emergency Console shall display three prominent, high-contrast speed-dial triggers:\n  1. 🚑 National Ambulance Dispatch (`tel:999` or `tel:199`)\n  2. 🏥 Hospital ER Emergency Desk (`tel:10616` / Square Hospital ER)\n  3. 👨\u200d⚕️ Primary Attending Physician Direct Line\n- **Outputs:** Single tap initiates immediate hardware telephony call.\n\n#### FR-SOS-03: Paramedic Critical Health Brief Display\n- **Description:** The Emergency Console shall prominently render the Paramedic Critical Health Brief in high-contrast text:\n  - Patient Full Name and Age (e.g., Abdul Rahman Chowdhury, 76 Yrs).\n  - Blood Group (e.g., B Positive - B+).\n  - **CRITICAL ALLERGIES:** Bold, red highlighted text: **"PENICILLIN (Causes Anaphylaxis)"**.\n  - Key Chronic Conditions (Type 2 Diabetes, Hypertension, Coronary Stent).\n  - Exact Home Physical Address and GPS Latitude/Longitude Coordinates.\n\n#### FR-SOS-04: One-Tap Broadcast SMS Alert to Family Contacts\n- **Description:** When the user taps "TRIGGER BROADCAST SMS TO ALL FAMILY", the system shall immediately dispatch an emergency distress SMS via the SMS Gateway to all registered emergency family contacts containing the senior’s name, emergency trigger time, and Google Maps live GPS link.\n\n---\n\n### 4.8 Module 8: Central Family Dashboard & Live Audit Feed (FR-DASH)\n\n#### FR-DASH-01: Consolidated Daily Care Status Card\n- **Description:** The Family Dashboard shall display high-level status indicators summarizing:\n  - Today\'s Medication Adherence Progress (e.g., "3 of 4 Doses Taken - 75%").\n  - Today\'s Care Routine Progress (e.g., "5 of 6 Tasks Completed").\n  - Latest Recorded Vitals (BP, Sugar, Pulse) with time elapsed.\n  - Active Caregiver on Duty (Name, Phone, Shift status).\n\n#### FR-DASH-02: Real-Time Live Activity Feed\n- **Description:** The dashboard shall render a chronological, time-stamped activity feed updating in real-time via WebSockets as events occur (e.g., "13:05 - Rahima marked Metformin 500mg as TAKEN").\n\n---\n\n## 5. Non-Functional Requirements (NFRs / Quality Attributes)\n\n### 5.1 Performance Requirements\n- **NFR-PERF-01 (Page Load Latency):** The initial load time of the web application shall not exceed **1.5 seconds** over a standard 4G broadband connection.\n- **NFR-PERF-02 (Emergency Console Latency):** The Emergency SOS console and Paramedic Brief screen MUST render completely within **500 milliseconds** of clicking the SOS button.\n- **NFR-PERF-03 (Real-Time Notification Speed):** WebSocket push updates from the caregiver\'s device to the family dashboard shall propagate within **2.0 seconds**.\n- **NFR-PERF-04 (Emergency SMS Dispatch):** Emergency broadcast SMS messages must be handed off to the SMS gateway provider within **3.0 seconds** of user trigger.\n- **NFR-PERF-05 (Concurrency):** The backend server shall sustain at least **500 concurrent active user sessions** without degradation in response times exceeding 300ms for API endpoints.\n\n### 5.2 Safety & Clinical Safety Requirements\n- **NFR-SAFE-01 (Duplicate Dispensation Lock):** Once a scheduled medication dose is marked as `TAKEN`, the system shall lock the dispensation button to prevent accidental double-dispensation or double-logging within the same time window.\n- **NFR-SAFE-02 (Fatal Allergy Prominence):** Drug allergies classified as life-threatening (e.g., Penicillin) shall never be truncated, hidden under accordions, or obscured by popups on any emergency or profile viewport.\n- **NFR-SAFE-03 (Offline Emergency Availability):** Critical emergency contacts and the Paramedic Health Brief shall be stored in client-side persistent storage (IndexedDB) so they remain viewable even if the home internet connection disconnects.\n\n### 5.3 Security Requirements & Health Data Protection\n- **NFR-SEC-01 (Authentication Security):** All user passwords shall be hashed using `bcrypt` with a minimum work factor of 12. Plaintext passwords shall never be logged or stored.\n- **NFR-SEC-02 (Data Encryption at Rest):** All sensitive personal health records (medical history, doctor notes, allergies) shall be encrypted at rest in the database using industry-standard **AES-256** encryption.\n- **NFR-SEC-03 (Data Encryption in Transit):** All communications between clients and servers must be encrypted using **TLS 1.3**. Unencrypted HTTP requests shall be automatically redirected to HTTPS.\n- **NFR-SEC-04 (Immutable Audit Trail):** The system shall maintain an immutable, append-only audit log recording every medication status change, profile update, and emergency activation, capturing User ID, IP Address, Timestamp, and Action.\n- **NFR-SEC-05 (Cross-Site Scripting & Injection Prevention):** All user input fields must be sanitized and parameterized to prevent SQL Injection and Cross-Site Scripting (XSS) attacks.\n\n### 5.4 Software Quality Attributes\n\n#### 5.4.1 Reliability & Availability\n- **NFR-REL-01 (System Availability):** The system shall guarantee **99.9% uptime** (less than 8.76 hours of unplanned downtime per year).\n- **NFR-REL-02 (Automated Cloud Backups):** The database shall undergo automated encrypted snapshots every 24 hours, with transaction log archiving enabling point-in-time recovery with a Recovery Point Objective (RPO) of < 1 hour.\n- **NFR-REL-03 (Mean Time to Recover - MTTR):** In the event of server failure, automated container orchestrators shall restart the service within an MTTR of **< 5 minutes**.\n\n#### 5.4.2 Usability & Senior Accessibility\n- **NFR-USA-01 (WCAG 2.1 AA Compliance):** The user interface shall comply with Web Content Accessibility Guidelines (WCAG) 2.1 Level AA.\n- **NFR-USA-02 (Touch Affordance):** Interactive buttons and touch targets on tablet and mobile viewports shall have a minimum clickable area of **48 x 48 CSS pixels** with adequate spacing (minimum 8px) to prevent accidental taps by users with motor tremors.\n- **NFR-USA-03 (Contrast Ratio):** All text elements shall achieve a minimum contrast ratio of **4.5:1** against their background; large headers and emergency buttons shall exceed **7.0:1**.\n\n#### 5.4.3 Maintainability & Portability\n- **NFR-MAINT-01 (Modular Architecture):** The codebase shall adhere to clean modular separation (Presentation, Business Logic, Data Access layers) with comprehensive documentation enabling independent maintenance.\n- **NFR-PORT-01 (Cross-Browser Compatibility):** The web application shall render identically and function without script errors across Chrome, Edge, Safari, and Firefox on Windows, macOS, Android, and iOS.\n\n---\n\n## 6. Requirements Traceability Matrix (RTM)\n\nThe Requirements Traceability Matrix maps each Elicited User Need (UN) to its corresponding Analysis Use Case (UC), SRS Functional Requirement (FR), and Quality Verification Method:\n\n| User Need ID | User Need Description | Use Case ID | SRS Functional Requirement ID | Verification Method |\n| :--- | :--- | :--- | :--- | :--- |\n| **UN-01** | Unified elderly medical profile & allergy registry | UC-02 | FR-PROF-01, FR-PROF-02, FR-PROF-03 | Inspection & Test |\n| **UN-02** | Visual medication schedule with meal instructions | UC-03 | FR-MED-01, FR-MED-02 | Demonstration & Test |\n| **UN-03** | Automated alerts for overdue/missed doses | UC-04 | FR-MED-05, FR-DASH-02 | Automated Unit & Integration Test |\n| **UN-04** | 1-Tap quick dispensation logging for caregivers | UC-04 | FR-MED-03, FR-MED-04 | Demonstration & User Test |\n| **UN-05** | Doctor appointment booking & reminders | UC-05 | FR-APT-01, FR-APT-02, FR-APT-03 | System Test |\n| **UN-06** | Daily routine & ADL checklist with vitals logging | UC-06 | FR-CARE-01, FR-CARE-02 | Test & Inspection |\n| **UN-07** | Standardized caregiver shift handoff & notes | UC-07 | FR-CG-01, FR-CG-02 | Demonstration & Test |\n| **UN-08** | Instant emergency speed dials & paramedic brief | UC-08, UC-09 | FR-SOS-01, FR-SOS-02, FR-SOS-03, FR-SOS-04 | Performance & Field Safety Test |\n| **UN-09** | Accessible senior UI (large text, high contrast) | All UIs | NFR-USA-01, NFR-USA-02, NFR-USA-03 | Accessibility Audit & User Test |\n| **UN-10** | Role-based authentication & data security | UC-01 | FR-AUTH-01, FR-AUTH-02, NFR-SEC-01 to 04 | Security & Penetration Test |\n\n*Verification Methods Definition:*\n- **Test (T):** Quantitative verification by executing predefined test cases against software inputs and outputs.\n- **Demonstration (D):** Qualitative verification observing system behavior during end-to-end user workflows.\n- **Inspection (I):** Visual and manual examination of code, schemas, and UI layout against specifications.\n- **Analysis (A):** Mathematical or theoretical verification of timing, concurrency, and security protocols.\n\n---\n\n## 7. Appendix: Glossary of Terms & Acronyms\n\n- **ADL (Activities of Daily Living):** Basic everyday personal care tasks necessary for fundamental functioning, including eating, bathing, mobility, and hydration.\n- **Bcrypt:** A password-hashing function designed by Niels Provos and David Mazières based on the Blowfish cipher.\n- **EHR (Electronic Health Record):** Digital systematized collection of patient health information.\n- **HIPAA:** Health Insurance Portability and Accountability Act; US federal standard governing privacy and security of personal health data.\n- **JWT (JSON Web Token):** Compact, URL-safe means of representing claims to be transferred between two parties in web authorization.\n- **MoSCoW:** Prioritization method used in software engineering: Must Have, Should Have, Could Have, and Won\'t Have.\n- **Paramedic Health Brief:** A specialized, high-urgency clinical summary displaying blood group, critical drug allergies, and major medical diagnoses for emergency first responders.\n- **RBAC (Role-Based Access Control):** Security mechanism restricting system access based on the authorized roles of verified users.\n- **RTM (Requirements Traceability Matrix):** A grid linking customer requirements to system specifications, design components, and test artifacts.\n- **SOS:** International maritime and emergency distress signal, used colloquially for urgent emergency dispatch features.\n- **SRS (Software Requirement Specification):** Complete formal description of the behavior of a software system to be developed.\n- **WCAG (Web Content Accessibility Guidelines):** Internationally recognized standards published by the W3C for digital web accessibility.\n- **WSS (WebSocket Secure):** Encrypted full-duplex communication protocol over a single TCP connection.\n';
+
+  const renderer = new marked.Renderer();
+  const originalCode = renderer.code.bind(renderer);
+
+  renderer.code = function(code, language) {
+    if (language === 'mermaid') {
+      return `<div class="mermaid">${code}</div>`;
+    }
+    return originalCode(code, language);
+  };
+
+  marked.setOptions({ renderer: renderer });
+  document.getElementById('content').innerHTML = marked.parse(rawMd);
+
+  mermaid.run();
+</script>
+
+</body>
+</html>
