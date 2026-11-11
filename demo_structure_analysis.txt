@@ -1,0 +1,627 @@
+PAGE 01 (lines: 38):
+  1 ===
+  Software
+  Requirements
+  Specification
+  for
+  HR
+  Management
+  System
+  Prepared
+  By
+
+PAGE 02 (lines: 192):
+  2 ===
+  Table
+  of
+  Contents
+  Abstract
+  4
+  Introduction
+  5
+  1.1
+  Background
+
+PAGE 03 (lines: 38):
+  3 ===
+  6.6
+  CRUD
+  Matrix
+  45
+  6.7
+  Activity
+  Table
+  46
+  6.8
+
+PAGE 04 (lines: 324):
+  4 ===
+  Abstract
+  HR
+  Management
+  System
+  is
+  a
+  Web-based
+  application
+  that
+
+PAGE 05 (lines: 267):
+  5 ===
+  Introduction
+  The
+  purpose
+  of
+  the
+  HR
+  Management
+  Systems
+  is
+
+PAGE 06 (lines: 188):
+  6 ===
+  1.2
+  Motivation
+  Several
+  factors
+  motivated
+  the
+  development
+  of
+  this
+
+PAGE 07 (lines: 189):
+  7 ===
+  1.3
+  Problem
+  Statement
+  Manual
+  systems
+  and/or
+  outdated
+  workflow
+  processes
+
+PAGE 08 (lines: 134):
+  8 ===
+  Fig
+  1:
+  Existing
+  System
+  Rich
+  Picture
+  1.4
+  Objective
+  The
+
+PAGE 09 (lines: 96):
+  9 ===
+  5.
+  Make
+  attendance,
+  leave
+  status,
+  and
+  salary
+  information
+  easily
+
+PAGE 10 (lines: 220):
+  10 ===
+  System
+  Overview
+  The
+  HR
+  Management
+  System
+  allows
+  organizations
+  to
+
+PAGE 11 (lines: 187):
+  11 ===
+  d)
+  Applying
+  for
+  and
+  tracking
+  Leave
+  of
+  Absences
+  (LOA's)
+
+PAGE 12 (lines: 147):
+  12 ===
+  1.
+  Presentation
+  Layer
+  Frontend
+  is
+  users
+  view
+  the
+  HR
+
+PAGE 13 (lines: 159):
+  13 ===
+  Fig
+  3:
+  System
+  Architecture
+  [5]
+  2.3
+  System
+  Modules
+  The
+
+PAGE 14 (lines: 202):
+  14 ===
+  submit
+  a
+  request
+  for
+  leave
+  on
+  paper,
+  nor
+  will
+
+PAGE 15 (lines: 178):
+  15 ===
+  2.4
+  Security
+  and
+  Verification
+  Security
+  is
+  an
+  essential
+  requirement,
+
+PAGE 16 (lines: 101):
+  16 ===
+  2.5
+  Software
+  Development
+  Tools
+  Category
+  Tools/Technology
+  Description
+  Frontend
+  HTML
+
+PAGE 17 (lines: 199):
+  17 ===
+  2.6
+  Advantages
+  of
+  Using
+  The
+  System
+  1.
+  Paperwork
+  can
+
+PAGE 18 (lines: 141):
+  18 ===
+  1.
+  Requirement
+  Analysis
+  In
+  this
+  phase,
+  the
+  requirements
+  are
+
+PAGE 19 (lines: 7):
+  19 ===
+  Fig
+  4:
+  SDLC
+  Process
+  Diagram
+  19
+
+PAGE 20 (lines: 146):
+  20 ===
+  Requirement
+  Engineering
+  Requirement
+  Engineering
+  ensures
+  the
+  system
+  requirements
+  are
+
+PAGE 21 (lines: 101):
+  21 ===
+  Schedule
+  Feasibility
+  The
+  system
+  can
+  be
+  completed
+  within
+  the
+
+PAGE 22 (lines: 64):
+  22 ===
+  all
+  modules.
+  User
+  interface
+  conflicts
+  were
+  resolved
+  for
+  consistency.
+
+PAGE 23 (lines: 249):
+  23 ===
+  Functional
+  requirements
+  An
+  HR
+  system
+  will
+  allow
+  employees
+  to
+
+PAGE 24 (lines: 207):
+  24 ===
+  Employee
+  List
+  (HR)
+  Displays
+  a
+  complete
+  list
+  of
+  all
+
+PAGE 25 (lines: 138):
+  25 ===
+  Data
+  Validation
+  All
+  input
+  fields
+  undergo
+  validation
+  checks
+  for
+
+PAGE 26 (lines: 116):
+  26 ===
+  View
+  Application
+  Status
+  Employee
+  sees
+  approved/reject
+  ed/pending
+  status
+  Existing
+
+PAGE 27 (lines: 27):
+  27 ===
+  Allocate
+  Salary
+  HR
+  assigns
+  monthly
+  salary
+  components
+  Valid
+  numerical
+
+PAGE 28 (lines: 13):
+  28 ===
+  System
+  Specification
+  Diagrams
+  6.1
+  Entity
+  Relationship
+  Diagram
+  Fig
+  5:
+
+PAGE 29 (lines: 13):
+  29 ===
+  6.3
+  Data
+  Flow
+  Diagram
+  Fig
+  6:
+  Data
+  Flow
+  Diagram
+
+PAGE 30 (lines: 18):
+  30 ===
+  6.4
+  Use
+  Case
+  Diagram
+  6.4.1
+  User
+  Management
+  Subsystem
+  Fig
+
+PAGE 31 (lines: 27):
+  31 ===
+  6.4.2
+  Leave
+  Application
+  Subsystem
+  Fig
+  8:
+  Leave
+  Application
+  Management
+
+PAGE 32 (lines: 14):
+  32 ===
+  6.4.4
+  Salary
+  Management
+  Subsystem
+  Fig
+  10:
+  Salary
+  Management
+  Subsystem
+
+PAGE 33 (lines: 121):
+  33 ===
+  6.5
+  Use
+  Case
+  Narration
+  Table
+  6.5.1
+  User
+  Management
+  Subsystem
+
+PAGE 34 (lines: 90):
+  34 ===
+  Use
+  Case
+  Name
+  Login
+  Actors
+  Employee,
+  HR
+  Description
+  Users
+
+PAGE 35 (lines: 102):
+  35 ===
+  Use
+  Case
+  Name
+  Edit
+  Information
+  Actors
+  Employee
+  Description
+  Employee
+
+PAGE 36 (lines: 61):
+  36 ===
+  Use
+  Case
+  Name
+  View
+  Employee
+  List
+  Actors
+  HR
+  Description
+
+PAGE 37 (lines: 101):
+  37 ===
+  6.5.2
+  Leave
+  Application
+  Management
+  Subsystem
+  Use
+  Case
+  Narration
+  Table
+
+PAGE 38 (lines: 68):
+  38 ===
+  Use
+  Case
+  Name
+  View
+  Application
+  Status
+  Actors
+  Employee
+  Description
+
+PAGE 39 (lines: 66):
+  39 ===
+  Use
+  Case
+  Name
+  View
+  Leave
+  Applications
+  Actors
+  HR
+  Description
+
+PAGE 40 (lines: 84):
+  40 ===
+  6.5.3
+  Attendance
+  Management
+  Subsystem
+  Use
+  Case
+  Narration
+  Table
+  Use
+
+PAGE 41 (lines: 112):
+  41 ===
+  Use
+  Case
+  Name
+  View
+  Attendance
+  Records
+  Actors
+  Employee
+  Description
+
+PAGE 42 (lines: 76):
+  42 ===
+  Use
+  Case
+  Name
+  Update
+  Application
+  Status
+  (Approve/Reject)
+  Actors
+  HR
+
+PAGE 43 (lines: 124):
+  43 ===
+  6.5.4
+  Salary
+  Management
+  Subsystem
+  Use
+  Case
+  Narration
+  Table
+  Use
+
+PAGE 44 (lines: 83):
+  44 ===
+  Post
+  Condition
+  Employee
+  can
+  see
+  the
+  updated
+  status
+  Use
+
+PAGE 45 (lines: 79):
+  45 ===
+  Use
+  Case
+  Name
+  Pay
+  Salary
+  Actors
+  HR
+  Description
+  HR
+
+PAGE 46 (lines: 45):
+  46 ===
+  6.6
+  CRUD
+  Matrix
+  Process/Entity
+  Employee
+  HR
+  User
+  Account
+  Employee
+
+PAGE 47 (lines: 80):
+  47 ===
+  6.7
+  Activity
+  Table
+  SL
+  Activity
+  Name
+  Duration
+  (Days)
+  Dependency
+
+PAGE 48 (lines: 44):
+  48 ===
+  L
+  Salary
+  Viewing
+  (Employee)
+  1
+  K
+  M
+  Employee
+  Information
+
+PAGE 49 (lines: 198):
+  49 ===
+  Non-Functional
+  Requirements
+  The
+  non-functional
+  requirements
+  define
+  the
+  overall
+  quality
+
+PAGE 50 (lines: 219):
+  50 ===
+  every
+  time.
+  Data
+  stored
+  in
+  the
+  system
+  should
+  always
+
+PAGE 51 (lines: 82):
+  51 ===
+  Result
+  Analysis
+  8.1
+  SWOT
+  Analysis
+  Strength
+  Weakness
+  Reduces
+  manual
+
+PAGE 52 (lines: 257):
+  52 ===
+  Conclusion
+  This
+  report
+  proposes
+  a
+  comprehensive
+  and
+  systematic
+  approach
+
+PAGE 53 (lines: 4):
+  53 ===
+  https://yapbryan6.medium.com/software-architecture-patterns-layered-architecture-patterns-975ff
+  2abec6f
+  53
+
