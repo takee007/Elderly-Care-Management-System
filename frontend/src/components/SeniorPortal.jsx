@@ -153,7 +153,7 @@ export default function SeniorPortal({ currentUser, onEmergencyTriggered }) {
           </div>
         )}
 
-        <p style={{ fontSize: '1.05rem', color: '#fecaca', marginTop: '1rem' }}>
+        <p style={{ fontSize: '1.2rem', color: '#fecaca', marginTop: '1rem' }}>
           Pressing this large button activates an alarm at the Nurse Station and notifies your son Tanvir Ahmed.
         </p>
       </div>
@@ -169,7 +169,7 @@ export default function SeniorPortal({ currentUser, onEmergencyTriggered }) {
               </div>
               <div>
                 <h3 className="senior-card-heading">My Medicines Today</h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>Tap checkbox when medicine is taken</p>
+                <p style={{ color: '#94a3b8', fontSize: '1.1875rem' }}>Tap checkbox when medicine is taken</p>
               </div>
             </div>
 
@@ -185,6 +185,7 @@ export default function SeniorPortal({ currentUser, onEmergencyTriggered }) {
                       border: `2px solid ${isChecked ? '#10b981' : 'var(--border-subtle)'}`,
                       borderRadius: 'var(--radius-md)',
                       padding: '1rem',
+                      minHeight: '64px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
@@ -193,17 +194,17 @@ export default function SeniorPortal({ currentUser, onEmergencyTriggered }) {
                     }}
                   >
                     <div>
-                      <div style={{ fontSize: '1.15rem', fontWeight: '800', color: '#fff' }}>
+                      <div style={{ fontSize: '1.3rem', fontWeight: '800', color: '#fff' }}>
                         {m.name}
                       </div>
-                      <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                      <div style={{ fontSize: '1.1875rem', color: 'var(--text-secondary)' }}>
                         {m.dosage} &bull; {m.frequency} ({m.scheduled_times})
                       </div>
                     </div>
                     {isChecked ? (
-                      <CheckCircle2 size={32} color="#10b981" />
+                      <CheckCircle2 size={34} color="#10b981" />
                     ) : (
-                      <div style={{ width: 28, height: 28, borderRadius: '50%', border: '2px solid #64748b' }} />
+                      <div style={{ width: 30, height: 30, borderRadius: '50%', border: '2px solid #64748b' }} />
                     )}
                   </div>
                 );
@@ -221,22 +222,22 @@ export default function SeniorPortal({ currentUser, onEmergencyTriggered }) {
               </div>
               <div>
                 <h3 className="senior-card-heading">Today's Schedule</h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>Daily Routine</p>
+                <p style={{ color: '#94a3b8', fontSize: '1.1875rem' }}>Daily Routine</p>
               </div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginTop: '1rem' }}>
-              <div style={{ padding: '0.75rem 1rem', background: 'rgba(15, 23, 42, 0.6)', borderRadius: 'var(--radius-md)', borderLeft: '4px solid #10b981' }}>
-                <strong style={{ fontSize: '1rem', color: '#fff' }}>08:30 AM &bull; Breakfast &amp; Vitals Telemetry</strong>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Room tray served with morning medications</p>
+              <div style={{ padding: '0.85rem 1rem', background: 'rgba(15, 23, 42, 0.6)', borderRadius: 'var(--radius-md)', borderLeft: '4px solid #10b981' }}>
+                <strong style={{ fontSize: '1.25rem', color: '#fff' }}>08:30 AM &bull; Breakfast &amp; Vitals Telemetry</strong>
+                <p style={{ fontSize: '1.1875rem', color: 'var(--text-secondary)' }}>Room tray served with morning medications</p>
               </div>
-              <div style={{ padding: '0.75rem 1rem', background: 'rgba(15, 23, 42, 0.6)', borderRadius: 'var(--radius-md)', borderLeft: '4px solid #38bdf8' }}>
-                <strong style={{ fontSize: '1rem', color: '#fff' }}>11:00 AM &bull; Garden Walk &amp; Relaxation</strong>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Dhanmondi Care courtyard fresh air &amp; gentle stretch</p>
+              <div style={{ padding: '0.85rem 1rem', background: 'rgba(15, 23, 42, 0.6)', borderRadius: 'var(--radius-md)', borderLeft: '4px solid #38bdf8' }}>
+                <strong style={{ fontSize: '1.25rem', color: '#fff' }}>11:00 AM &bull; Garden Walk &amp; Relaxation</strong>
+                <p style={{ fontSize: '1.1875rem', color: 'var(--text-secondary)' }}>Dhanmondi Care courtyard fresh air &amp; gentle stretch</p>
               </div>
-              <div style={{ padding: '0.75rem 1rem', background: 'rgba(15, 23, 42, 0.6)', borderRadius: 'var(--radius-md)', borderLeft: '4px solid #a855f7' }}>
-                <strong style={{ fontSize: '1rem', color: '#fff' }}>03:30 PM &bull; Video Call with Son Tanvir</strong>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Tablet assistance provided by Nurse Fatema</p>
+              <div style={{ padding: '0.85rem 1rem', background: 'rgba(15, 23, 42, 0.6)', borderRadius: 'var(--radius-md)', borderLeft: '4px solid #a855f7' }}>
+                <strong style={{ fontSize: '1.25rem', color: '#fff' }}>03:30 PM &bull; Video Call with Son Tanvir</strong>
+                <p style={{ fontSize: '1.1875rem', color: 'var(--text-secondary)' }}>Tablet assistance provided by Nurse Fatema</p>
               </div>
             </div>
           </div>
@@ -251,7 +252,7 @@ export default function SeniorPortal({ currentUser, onEmergencyTriggered }) {
               </div>
               <div>
                 <h3 className="senior-card-heading">Family &amp; Nurse Speed Dial</h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>1-Tap Direct Call</p>
+                <p style={{ color: '#94a3b8', fontSize: '1.1875rem' }}>1-Tap Direct Call</p>
               </div>
             </div>
 
@@ -262,8 +263,9 @@ export default function SeniorPortal({ currentUser, onEmergencyTriggered }) {
                   background: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
                   color: '#fff',
                   padding: '1.25rem',
+                  minHeight: '64px',
                   borderRadius: 'var(--radius-lg)',
-                  fontSize: '1.25rem',
+                  fontSize: '1.3rem',
                   fontWeight: '800',
                   display: 'flex',
                   alignItems: 'center',
@@ -282,8 +284,9 @@ export default function SeniorPortal({ currentUser, onEmergencyTriggered }) {
                   background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
                   color: '#fff',
                   padding: '1.25rem',
+                  minHeight: '64px',
                   borderRadius: 'var(--radius-lg)',
-                  fontSize: '1.25rem',
+                  fontSize: '1.3rem',
                   fontWeight: '800',
                   display: 'flex',
                   alignItems: 'center',
@@ -309,7 +312,7 @@ export default function SeniorPortal({ currentUser, onEmergencyTriggered }) {
               SENDING EMERGENCY SIGNAL...
             </h2>
             <div className="countdown-digits">{countdown}</div>
-            <p style={{ fontSize: '1.1rem', color: '#fecaca', marginBottom: '1.5rem' }}>
+            <p style={{ fontSize: '1.25rem', color: '#fecaca', marginBottom: '1.5rem' }}>
               If touched by mistake, tap the button below immediately!
             </p>
 

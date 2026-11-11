@@ -506,32 +506,33 @@ html_content = """<!DOCTYPE html>
   .cover-index-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    font-size: 11px;
+    gap: 6px;
+    font-size: 10.5px;
   }
 
   .cover-index-item {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    padding: 6px 10px;
+    padding: 4.5px 8px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     color: #CBD5E1;
   }
 
   .cover-index-num {
     background: #0D9488;
     color: white;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 9.5px;
+    flex-shrink: 0;
   }
 </style>
 </head>
@@ -559,28 +560,31 @@ html_content = """<!DOCTYPE html>
 
       <div class="cover-info-card">
         <h3>Design System Objectives</h3>
-        <p>• <strong>Senior-Centric Readability:</strong> WCAG AAA contrast, minimum 14pt body text, and prominent visual cues.</p>
-        <p>• <strong>Zero-Error Medication Safety:</strong> Color-coded dosage status with time stamps and audio-visual cues.</p>
-        <p>• <strong>Caregiver Accountability:</strong> Structured daily handoff logs, vitals verification, and instant emergency dispatch.</p>
+        <p>• <strong>Senior-Centric Accessibility:</strong> WCAG AAA (≥7:1) contrast, minimum <strong>14pt (18.67px)</strong> body text on Senior UI (14px minimum across clinical portals), &amp; ≥56px touch targets.</p>
+        <p>• <strong>5 Role-Isolated Portals:</strong> Dedicated interfaces for Family Members, Caregivers, Senior Residents, Physicians, and Administrators.</p>
+        <p>• <strong>Zero-Error Safety &amp; SOS:</strong> Color-coded eMAR adherence, shift handoff logs, and 1-tap 999 SOS dispatch.</p>
       </div>
     </div>
 
     <div>
-      <h3 style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#94A3B8; margin-bottom:6px;">
-        Sequenced Interface Specification (1 Screen Per Page)
+      <h3 style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:#94A3B8; margin-bottom:5px;">
+        Sequenced Interface Specification (15 Pages • 12 Dedicated Screens)
       </h3>
       <div class="cover-index-grid">
-        <div class="cover-index-item"><span class="cover-index-num">1</span> Design System Tokens & Style Guide</div>
-        <div class="cover-index-item"><span class="cover-index-num">2</span> Screen Flow & Information Architecture</div>
-        <div class="cover-index-item"><span class="cover-index-num">3</span> Screen 1: Role-Based Authentication</div>
+        <div class="cover-index-item"><span class="cover-index-num">1</span> Design System Tokens &amp; Accessibility</div>
+        <div class="cover-index-item"><span class="cover-index-num">2</span> Multi-Role Screen Flow &amp; IA</div>
+        <div class="cover-index-item"><span class="cover-index-num">3</span> Screen 1: Multi-Role Authentication</div>
         <div class="cover-index-item"><span class="cover-index-num">4</span> Screen 2: Central Family Dashboard</div>
-        <div class="cover-index-item"><span class="cover-index-num">5</span> Screen 3: Elderly Profile & Health Record</div>
-        <div class="cover-index-item"><span class="cover-index-num">6</span> Screen 4: Medicine Schedule & Tracker</div>
+        <div class="cover-index-item"><span class="cover-index-num">5</span> Screen 3: Elderly Profile &amp; Health Record</div>
+        <div class="cover-index-item"><span class="cover-index-num">6</span> Screen 4: Medicine Schedule &amp; Tracker</div>
         <div class="cover-index-item"><span class="cover-index-num">7</span> Screen 5: Add Medication Form Modal</div>
         <div class="cover-index-item"><span class="cover-index-num">8</span> Screen 6: Doctor Appointment Tracking</div>
         <div class="cover-index-item"><span class="cover-index-num">9</span> Screen 7: Daily Care Routine Checklist</div>
         <div class="cover-index-item"><span class="cover-index-num">10</span> Screen 8: Caregiver Shift Handoff Log</div>
         <div class="cover-index-item"><span class="cover-index-num">11</span> Screen 9: Instant Emergency SOS Portal</div>
+        <div class="cover-index-item"><span class="cover-index-num">12</span> Screen 10: Senior Resident Dashboard</div>
+        <div class="cover-index-item"><span class="cover-index-num">13</span> Screen 11: Physician EHR &amp; Consult Portal</div>
+        <div class="cover-index-item"><span class="cover-index-num">14</span> Screen 12: Admin Governance &amp; Audit Logs</div>
       </div>
     </div>
   </div>
@@ -630,22 +634,22 @@ html_content = """<!DOCTYPE html>
       <!-- Typography & Components -->
       <div class="grid-2">
         <div class="card-hf">
-          <div class="card-header-hf"><h4>Typography Hierarchy</h4></div>
-          <div style="display:flex; flex-direction:column; gap:6px; font-size:11px;">
-            <div><span style="font-size:16px; font-weight:800;">Heading 1 (24px)</span> — Section Titles</div>
-            <div><span style="font-size:14px; font-weight:700;">Heading 2 (18px)</span> — Card Headers</div>
-            <div><span style="font-size:12px; font-weight:600;">Subheading (14px)</span> — Data Labels</div>
-            <div><span style="font-size:11px; font-weight:400; color:var(--slate-600);">Body Regular (13px) — High legibility medical text</span></div>
+          <div class="card-header-hf"><h4>Reconciled Typography Hierarchy</h4></div>
+          <div style="display:flex; flex-direction:column; gap:5px; font-size:11.5px;">
+            <div><span style="font-size:17px; font-weight:800;">Heading 1 (24px / 18pt)</span> — Portal &amp; Section Titles</div>
+            <div><span style="font-size:14.5px; font-weight:700;">Heading 2 (20px / 15pt)</span> — Card Headers &amp; Modals</div>
+            <div><span style="font-size:15px; font-weight:700; color:#0F766E;">Senior Body (14pt / 18.67px min)</span> — Accessible Senior UI</div>
+            <div><span style="font-size:14px; font-weight:500; color:var(--slate-700);">Clinical Body (14px / 10.5pt min)</span> — EHR &amp; Staff Tables</div>
           </div>
         </div>
 
         <div class="card-hf">
-          <div class="card-header-hf"><h4>Interactive Badges & Buttons</h4></div>
+          <div class="card-header-hf"><h4>Interactive Badges &amp; Buttons</h4></div>
           <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
             <span class="badge-hf badge-green">✓ Dose Completed</span>
             <span class="badge-hf badge-amber">⏳ Due in 25m</span>
             <span class="badge-hf badge-red">🚨 Critical SOS</span>
-            <span class="badge-hf badge-blue">🩺 Doctor Visit</span>
+            <span class="badge-hf badge-blue">🩺 Physician Review</span>
             <div style="width:100%; height:1px; background:#E2E8F0; margin:4px 0;"></div>
             <button class="btn-hf btn-primary">Primary Action</button>
             <button class="btn-hf btn-secondary">Secondary Option</button>
@@ -656,11 +660,11 @@ html_content = """<!DOCTYPE html>
 
       <!-- Accessibility Guidelines Box -->
       <div class="card-hf" style="background:#F0FDFA; border-color:#99F6E4;">
-        <h4 style="font-size:12px; font-weight:700; color:#0F766E; margin-bottom:4px;">Geriatric & Elderly-Friendly UX Guidelines</h4>
+        <h4 style="font-size:12px; font-weight:700; color:#0F766E; margin-bottom:4px;">Reconciled Geriatric &amp; Elderly-Friendly UX Guidelines (WCAG 2.1 AAA)</h4>
         <div class="grid-3" style="font-size:11px; color:#115E59;">
-          <div>• <strong>Touch Targets:</strong> Buttons and clickable tiles minimum 44px height.</div>
-          <div>• <strong>WCAG AAA Contrast:</strong> Minimum 7:1 contrast ratio on all key text.</div>
-          <div>• <strong>Dual Encoding:</strong> Information conveyed using both text + color icons.</div>
+          <div>• <strong>Minimum Body Size:</strong> Strict <strong>14pt (18.67px)</strong> minimum body text in Senior Resident UI; <strong>14px</strong> minimum on dense clinical tables.</div>
+          <div>• <strong>Touch Targets:</strong> Minimum <strong>48px</strong> clinical controls; <strong>56px–72px+</strong> buttons in Senior Resident UI.</div>
+          <div>• <strong>Dual Encoding &amp; Contrast:</strong> ≥7:1 contrast ratio; every state pairs color + icon + text label.</div>
         </div>
       </div>
     </div>
@@ -668,26 +672,26 @@ html_content = """<!DOCTYPE html>
     <!-- Specs Sidebar -->
     <div class="specs-sidebar">
       <div class="spec-card">
-        <h3>Design Philosophy</h3>
-        <p>A human-centered system designed specifically to bridge the communication gap between busy family members, non-technical elderly users, and home healthcare aides.</p>
+        <h3>Typography Reconciliation</h3>
+        <p>Reconciles senior accessibility and clinical density under one rulebook: <strong>14pt (18.67px)</strong> minimum body floor across Senior Portal and <strong>14px</strong> minimum across clinical staff interfaces (eliminating legacy 13px copy).</p>
       </div>
 
       <div class="spec-card">
         <h3>Design Tokens</h3>
         <span class="token-tag">#0D9488 Brand</span>
         <span class="token-tag">#0F172A Base</span>
-        <span class="token-tag">#F8FAFC Canvas</span>
-        <span class="token-tag">#E11D48 Urgent</span>
+        <span class="token-tag">14pt / 18.67px Senior</span>
+        <span class="token-tag">14px Clinical Body</span>
+        <span class="token-tag">≥56px Senior Touch</span>
         <span class="token-tag">Inter / Plus Jakarta</span>
-        <span class="token-tag">8px Radius Grid</span>
       </div>
 
       <div class="spec-card">
         <h3>Key Standards</h3>
         <ul>
-          <li>Card-based modular layouts.</li>
-          <li>Real-time timestamp verification.</li>
-          <li>Optimized for desktop, laptop & tablet screens.</li>
+          <li>Card-based modular layouts across 5 role portals.</li>
+          <li>Real-time timestamp &amp; audit trail verification.</li>
+          <li>Optimized for tablets, desktops &amp; nurse stations.</li>
         </ul>
       </div>
     </div>
@@ -712,69 +716,84 @@ html_content = """<!DOCTYPE html>
 
   <div class="screen-layout">
     <div class="mockup-frame" style="padding:16px; background:#F8FAFC;">
-      <div style="display:flex; flex-direction:column; gap:14px; height:100%;">
+      <div style="display:flex; flex-direction:column; gap:10px; height:100%;">
         <!-- Flow top -->
-        <div style="display:flex; justify-content:center; align-items:center; gap:16px;">
-          <div class="card-hf" style="width:200px; text-align:center; background:#F1F5F9; border-style:dashed;">
-            <div style="font-size:10px; font-weight:700; color:var(--slate-400);">SYSTEM ENTRY</div>
-            <strong style="font-size:12px;">Elderly Care Web App</strong>
+        <div style="display:flex; justify-content:center; align-items:center; gap:14px;">
+          <div class="card-hf" style="width:190px; text-align:center; background:#F1F5F9; border-style:dashed; padding:7px 10px;">
+            <div style="font-size:9.5px; font-weight:700; color:var(--slate-400);">SYSTEM ENTRY</div>
+            <strong style="font-size:11.5px;">Elderly Care Web App</strong>
           </div>
-          <div style="font-size:18px; color:var(--primary); font-weight:bold;">➔</div>
-          <div class="card-hf" style="width:220px; text-align:center; border:2px solid var(--primary);">
-            <div style="font-size:10px; font-weight:700; color:var(--primary);">SCREEN 1: AUTHENTICATION</div>
-            <strong style="font-size:12px;">Role Toggle: Family / Caregiver</strong>
-          </div>
-        </div>
-
-        <div style="text-align:center; font-size:14px; color:var(--slate-400);">⬇ (Secure Session Handshake)</div>
-
-        <!-- Central Hub -->
-        <div style="display:flex; justify-content:center;">
-          <div class="card-hf" style="width:340px; text-align:center; background:linear-gradient(135deg, #0F172A, #1E293B); color:white; box-shadow:var(--shadow-md);">
-            <div style="font-size:10px; font-weight:700; color:#5EEAD4;">CENTRAL COMMAND HUB</div>
-            <strong style="font-size:14px;">Screen 2: Family Member Dashboard</strong>
-            <p style="font-size:10px; color:#94A3B8; margin-top:2px;">Patient Status • Next Med Alert • Daily Schedule • SOS Action</p>
+          <div style="font-size:16px; color:var(--primary); font-weight:bold;">➔</div>
+          <div class="card-hf" style="width:310px; text-align:center; border:2px solid var(--primary); padding:7px 10px;">
+            <div style="font-size:9.5px; font-weight:700; color:var(--primary);">SCREEN 1: MULTI-ROLE AUTHENTICATION</div>
+            <strong style="font-size:11px;">Family • Caregiver • Senior • Physician • Admin</strong>
           </div>
         </div>
 
-        <div style="text-align:center; font-size:14px; color:var(--slate-400);">⬇ (Core Functional Modules)</div>
+        <div style="text-align:center; font-size:11.5px; color:var(--slate-400);">⬇ (Role-Based Access Control Routing)</div>
+
+        <!-- 4 Role Hubs Row -->
+        <div class="grid-4" style="gap:8px;">
+          <div class="card-hf" style="text-align:center; background:linear-gradient(135deg, #0F172A, #1E293B); color:white; padding:8px;">
+            <div style="font-size:9px; font-weight:700; color:#5EEAD4;">GUARDIAN HUB</div>
+            <strong style="font-size:11px;">Screen 2: Family</strong>
+            <p style="font-size:9px; color:#94A3B8; margin-top:2px;">Vitals, Meds, Care Notes</p>
+          </div>
+          <div class="card-hf" style="text-align:center; background:#FFFBEB; border:1.5px solid #F59E0B; padding:8px;">
+            <div style="font-size:9px; font-weight:700; color:#B45309;">ACCESSIBLE 14PT UI</div>
+            <strong style="font-size:11px; color:#78350F;">Screen 10: Senior</strong>
+            <p style="font-size:9px; color:#92400E; margin-top:2px;">Large Meds, Dial, 999 SOS</p>
+          </div>
+          <div class="card-hf" style="text-align:center; background:#EFF6FF; border:1.5px solid #2563EB; padding:8px;">
+            <div style="font-size:9px; font-weight:700; color:#1D4ED8;">CLINICAL MD EHR</div>
+            <strong style="font-size:11px; color:#1E3A8A;">Screen 11: Physician</strong>
+            <p style="font-size:9px; color:#1E40AF; margin-top:2px;">Records, Rx, Teleconsult</p>
+          </div>
+          <div class="card-hf" style="text-align:center; background:#F8FAFC; border:1.5px solid #475569; padding:8px;">
+            <div style="font-size:9px; font-weight:700; color:#475569;">GOVERNANCE &amp; RBAC</div>
+            <strong style="font-size:11px; color:#0F172A;">Screen 12: Admin</strong>
+            <p style="font-size:9px; color:#334155; margin-top:2px;">Users, KPIs, Audit Logs</p>
+          </div>
+        </div>
+
+        <div style="text-align:center; font-size:11.5px; color:var(--slate-400);">⬇ (Shared Clinical Operations Modules)</div>
 
         <!-- 4 Branches -->
         <div class="grid-4" style="gap:8px;">
-          <div class="card-hf" style="text-align:center;">
-            <span style="font-size:16px;">👤</span>
-            <div style="font-size:11px; font-weight:700; color:var(--slate-800);">Screen 3: Profile</div>
-            <p style="font-size:9.5px; color:var(--slate-600);">Medical History, Vitals & Allergies</p>
+          <div class="card-hf" style="text-align:center; padding:7px;">
+            <span style="font-size:15px;">👤</span>
+            <div style="font-size:10.5px; font-weight:700; color:var(--slate-800);">Screen 3: Profile</div>
+            <p style="font-size:9px; color:var(--slate-600);">Medical History &amp; Allergies</p>
           </div>
-          <div class="card-hf" style="text-align:center; border-color:#99F6E4;">
-            <span style="font-size:16px;">💊</span>
-            <div style="font-size:11px; font-weight:700; color:var(--primary-dark);">Screen 4 & 5: Meds</div>
-            <p style="font-size:9.5px; color:var(--slate-600);">Schedule, Refill & Add Prescription</p>
+          <div class="card-hf" style="text-align:center; border-color:#99F6E4; padding:7px;">
+            <span style="font-size:15px;">💊</span>
+            <div style="font-size:10.5px; font-weight:700; color:var(--primary-dark);">Screen 4 &amp; 5: Meds</div>
+            <p style="font-size:9px; color:var(--slate-600);">eMAR &amp; Add Prescription</p>
           </div>
-          <div class="card-hf" style="text-align:center;">
-            <span style="font-size:16px;">🩺</span>
-            <div style="font-size:11px; font-weight:700; color:var(--slate-800);">Screen 6: Doctors</div>
-            <p style="font-size:9.5px; color:var(--slate-600);">Visits, Clinics & Prescription History</p>
+          <div class="card-hf" style="text-align:center; padding:7px;">
+            <span style="font-size:15px;">🩺</span>
+            <div style="font-size:10.5px; font-weight:700; color:var(--slate-800);">Screen 6: Visits</div>
+            <p style="font-size:9px; color:var(--slate-600);">Doctor &amp; Clinic Schedule</p>
           </div>
-          <div class="card-hf" style="text-align:center;">
-            <span style="font-size:16px;">📋</span>
-            <div style="font-size:11px; font-weight:700; color:var(--slate-800);">Screen 7: Routine</div>
-            <p style="font-size:9.5px; color:var(--slate-600);">Hydration, Meals, Exercise & BP</p>
+          <div class="card-hf" style="text-align:center; padding:7px;">
+            <span style="font-size:15px;">📋</span>
+            <div style="font-size:10.5px; font-weight:700; color:var(--slate-800);">Screen 7: Routine</div>
+            <p style="font-size:9px; color:var(--slate-600);">Meals, Hydration &amp; Checks</p>
           </div>
         </div>
 
         <!-- Bottom Row -->
-        <div style="display:flex; justify-content:center; gap:20px; align-items:center; margin-top:4px;">
-          <div class="card-hf" style="width:240px; text-align:center;">
+        <div style="display:flex; justify-content:center; gap:20px; align-items:center;">
+          <div class="card-hf" style="width:240px; text-align:center; padding:7px;">
             <span style="font-size:14px;">🤝</span>
-            <div style="font-size:11px; font-weight:700;">Screen 8: Caregivers</div>
-            <p style="font-size:9.5px; color:var(--slate-600);">Nurse Roster, Shift Timing & Care Notes</p>
+            <div style="font-size:10.5px; font-weight:700;">Screen 8: Caregiver Station</div>
+            <p style="font-size:9px; color:var(--slate-600);">Vitals Telemetry, eMAR &amp; Shift Notes</p>
           </div>
           <div style="font-size:16px; color:var(--rose-600); font-weight:bold;">⮂</div>
-          <div class="card-hf" style="width:240px; text-align:center; background:#FFE4E6; border:1.5px solid #F43F5E;">
+          <div class="card-hf" style="width:240px; text-align:center; background:#FFE4E6; border:1.5px solid #F43F5E; padding:7px;">
             <span style="font-size:14px;">🚨</span>
-            <div style="font-size:11px; font-weight:700; color:#9F1239;">Screen 9: EMERGENCY SOS</div>
-            <p style="font-size:9.5px; color:#9F1239;">Speed Dial 999, ER Desk & GPS Broadcast</p>
+            <div style="font-size:10.5px; font-weight:700; color:#9F1239;">Screen 9: EMERGENCY SOS</div>
+            <p style="font-size:9px; color:#9F1239;">999 Broadcast, ER Brief &amp; Triage</p>
           </div>
         </div>
       </div>
@@ -784,17 +803,18 @@ html_content = """<!DOCTYPE html>
     <div class="specs-sidebar">
       <div class="spec-card">
         <h3>Architecture Strategy</h3>
-        <p>The system utilizes a <strong>Hub-and-Spoke Topology</strong>. The Dashboard functions as the persistent anchor, ensuring non-technical users never get lost in deep sub-pages.</p>
+        <p><strong>Role-Routed Topology:</strong> Each persona lands on an interface tailored to their workflow (accessible large cards for Seniors, EHR workspaces for Physicians, governance/audit tools for Admins).</p>
       </div>
 
       <div class="spec-card">
         <h3>Screen Sequence</h3>
         <ul>
-          <li><strong>Step 1:</strong> Role-based entry</li>
-          <li><strong>Step 2:</strong> Main state overview</li>
-          <li><strong>Step 3-7:</strong> Core healthcare ops</li>
-          <li><strong>Step 8:</strong> Care staff coordination</li>
-          <li><strong>Step 9:</strong> Instant emergency rescue</li>
+          <li><strong>Screen 1:</strong> 5-role auth gateway</li>
+          <li><strong>Screens 2–7:</strong> Family &amp; daily care ops</li>
+          <li><strong>Screens 8–9:</strong> Caregiver handoff &amp; SOS</li>
+          <li><strong>Screen 10:</strong> Dedicated Senior UI (14pt)</li>
+          <li><strong>Screen 11:</strong> Physician EHR &amp; teleconsult</li>
+          <li><strong>Screen 12:</strong> Admin RBAC &amp; audit logs</li>
         </ul>
       </div>
     </div>
@@ -807,13 +827,13 @@ html_content = """<!DOCTYPE html>
     <div class="brand-badge">
       <div class="brand-logo-icon">EC</div>
       <div class="page-title-group">
-        <h1>03. Screen 1: Role-Based Authentication Portal</h1>
-        <p>Secure login with instantaneous dual-role switching between Family Members and Caregivers</p>
+        <h1>03. Screen 1: Multi-Role Authentication Portal</h1>
+        <p>Secure RBAC login with instant role switching across Family, Caregiver, Senior, Physician &amp; Admin portals</p>
       </div>
     </div>
     <div class="meta-pills">
-      <span class="pill highlight">Screen 1 of 9</span>
-      <span class="pill">Auth & Roles</span>
+      <span class="pill highlight">Screen 1 of 12</span>
+      <span class="pill">Auth &amp; 5 Roles</span>
     </div>
   </div>
 
@@ -822,55 +842,50 @@ html_content = """<!DOCTYPE html>
       <div class="mockup-chrome">
         <div class="window-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
         <div class="mockup-url">https://elderlycare.portal/login</div>
-        <span style="font-size:10px; color:var(--primary); font-weight:bold;">SSL 256-bit Encrypted</span>
+        <span style="font-size:10px; color:var(--primary); font-weight:bold;">SSL 256-bit • JWT RBAC</span>
       </div>
-      <div class="app-shell" style="align-items:center; justify-content:center; background:linear-gradient(135deg, #F8FAFC 0%, #EEF2F6 100%);">
-        <div class="card-hf" style="width:370px; padding:22px; box-shadow:var(--shadow-lg); border-radius:12px;">
-          <div style="text-align:center; margin-bottom:16px;">
-            <div style="width:44px; height:44px; background:linear-gradient(135deg, #0D9488, #0F766E); border-radius:10px; margin:0 auto 8px; display:flex; align-items:center; justify-content:center; color:white; font-size:22px; font-weight:bold; box-shadow:0 4px 6px rgba(13,148,136,0.3);">
+      <div class="app-shell" style="align-items:center; justify-content:center; padding:12px; gap:14px; background:linear-gradient(135deg, #F8FAFC 0%, #EEF2F6 100%);">
+        <div class="card-hf" style="width:295px; padding:16px; box-shadow:var(--shadow-lg); border-radius:12px;">
+          <div style="text-align:center; margin-bottom:10px;">
+            <div style="width:38px; height:38px; background:linear-gradient(135deg, #0D9488, #0F766E); border-radius:10px; margin:0 auto 6px; display:flex; align-items:center; justify-content:center; color:white; font-size:18px; font-weight:bold;">
               🩺
             </div>
-            <h2 style="font-size:18px; font-weight:800; color:var(--slate-900);">Elderly Care Portal</h2>
-            <p style="font-size:11px; color:var(--slate-600); margin-top:2px;">Dedicated Family & Caregiver Monitoring System</p>
+            <h2 style="font-size:16px; font-weight:800; color:var(--slate-900);">Elderly Care Portal</h2>
+            <p style="font-size:10.5px; color:var(--slate-600); margin-top:2px;">Role-Authorized Healthcare Access</p>
           </div>
 
-          <!-- Role Toggle Buttons -->
-          <div style="background:#F1F5F9; padding:3px; border-radius:8px; display:flex; gap:3px; margin-bottom:14px;">
-            <button style="flex:1; padding:6px; border:none; border-radius:6px; background:#0D9488; color:white; font-size:11px; font-weight:700; cursor:pointer; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
-              👨‍👩‍👧 Family Member
-            </button>
-            <button style="flex:1; padding:6px; border:none; border-radius:6px; background:transparent; color:var(--slate-600); font-size:11px; font-weight:600; cursor:pointer;">
-              👩‍⚕️ Caregiver Staff
-            </button>
-          </div>
-
-          <!-- Input Fields -->
-          <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; flex-direction:column; gap:8px;">
             <div>
-              <label style="font-size:10.5px; font-weight:700; color:var(--slate-700); display:block; margin-bottom:3px;">Email Address or Phone Number</label>
-              <input type="text" value="tariq.rahman@caremail.com" style="width:100%; padding:8px 10px; border:1px solid #CBD5E1; border-radius:6px; font-size:11.5px; color:var(--slate-800); background:#FFFFFF; outline:none;" readonly>
+              <label style="font-size:10.5px; font-weight:700; color:var(--slate-700); display:block; margin-bottom:2px;">Institutional Email Address</label>
+              <input type="text" value="nurse.fatema@probin.org.bd" style="width:100%; padding:7px 9px; border:1px solid #CBD5E1; border-radius:6px; font-size:11px; color:var(--slate-800); background:#FFFFFF;" readonly>
             </div>
             <div>
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;">
-                <label style="font-size:10.5px; font-weight:700; color:var(--slate-700);">Password</label>
-                <span style="font-size:10px; color:var(--primary); font-weight:600; cursor:pointer;">Forgot Password?</span>
-              </div>
-              <input type="password" value="secretpassword" style="width:100%; padding:8px 10px; border:1px solid #CBD5E1; border-radius:6px; font-size:11.5px; color:var(--slate-800); background:#FFFFFF; outline:none;" readonly>
+              <label style="font-size:10.5px; font-weight:700; color:var(--slate-700); display:block; margin-bottom:2px;">Password</label>
+              <input type="password" value="password123" style="width:100%; padding:7px 9px; border:1px solid #CBD5E1; border-radius:6px; font-size:11px; color:var(--slate-800); background:#FFFFFF;" readonly>
             </div>
-
-            <div style="display:flex; align-items:center; gap:6px; margin:2px 0;">
-              <input type="checkbox" checked style="accent-color:var(--primary);">
-              <label style="font-size:10.5px; color:var(--slate-600);">Keep me securely logged in on this tablet</label>
-            </div>
-
-            <button class="btn-hf btn-primary" style="padding:9px; font-size:12px; margin-top:4px;">
-              Sign In to Care Dashboard ➔
+            <button class="btn-hf btn-primary" style="padding:8px; font-size:11.5px; margin-top:2px;">
+              Sign In to Portal ➔
             </button>
           </div>
 
-          <div style="margin-top:14px; padding-top:10px; border-top:1px solid var(--slate-100); text-align:center;">
-            <span style="font-size:10px; color:var(--slate-400);">Need immediate emergency dispatch?</span><br>
-            <strong style="font-size:11px; color:var(--rose-600);">Call 24/7 Ambulance: 999 / 10616</strong>
+          <div style="margin-top:10px; padding-top:8px; border-top:1px solid var(--slate-100); text-align:center;">
+            <span style="font-size:9.5px; color:var(--slate-400);">Emergency Line Always Active</span><br>
+            <strong style="font-size:10.5px; color:var(--rose-600);">National 999 • Health Helpline 16263</strong>
+          </div>
+        </div>
+
+        <!-- 5-Role Quick Persona Switcher -->
+        <div class="card-hf" style="width:270px; padding:14px; box-shadow:var(--shadow-md); border-radius:12px;">
+          <div class="card-header-hf" style="margin-bottom:6px; padding-bottom:4px;">
+            <h4>5-Role Instant Portal Selector</h4>
+            <span class="badge-hf badge-green">RBAC</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:5px; font-size:10.5px;">
+            <div style="padding:5px 8px; border-radius:6px; background:#ECFDF5; border:1px solid #6EE7B7;"><strong>👩‍⚕️ Caregiver</strong> → Telemetry &amp; eMAR</div>
+            <div style="padding:5px 8px; border-radius:6px; background:#EFF6FF; border:1px solid #93C5FD;"><strong>🩺 Physician</strong> → EHR, Rx &amp; Telehealth</div>
+            <div style="padding:5px 8px; border-radius:6px; background:#FFFBEB; border:1px solid #FCD34D;"><strong>👴 Senior Resident</strong> → 14pt Accessible UI</div>
+            <div style="padding:5px 8px; border-radius:6px; background:#F5F3FF; border:1px solid #C4B5FD;"><strong>👨‍👩‍👧 Family Guardian</strong> → Live Monitoring</div>
+            <div style="padding:5px 8px; border-radius:6px; background:#F1F5F9; border:1px solid #CBD5E1;"><strong>🛡️ Administrator</strong> → Users, RBAC &amp; Audit</div>
           </div>
         </div>
       </div>
@@ -880,15 +895,15 @@ html_content = """<!DOCTYPE html>
     <div class="specs-sidebar">
       <div class="spec-card">
         <h3>Screen Purpose</h3>
-        <p>Guarantees safe role-isolated login. Family members access billing and prescriptions, while caregivers access clinical logs and shift reports.</p>
+        <p>Routes all 5 clinical and resident personas into strictly isolated interfaces verified via JWT RBAC tokens.</p>
       </div>
 
       <div class="spec-card">
         <h3>UX Details</h3>
         <ul>
-          <li><strong>Instant Role Switch:</strong> Single-click toggle between Family and Caregiver profiles.</li>
-          <li><strong>Large Tap Targets:</strong> Designed for adult children and senior nurses on mobile/iPad.</li>
-          <li><strong>Persistent Emergency Line:</strong> Critical phone numbers visible even before login.</li>
+          <li><strong>5-Role Switcher:</strong> Supports Guardian, Caregiver, Senior, Physician &amp; Admin portals.</li>
+          <li><strong>Accessible Entry:</strong> Minimum 48px touch targets &amp; clear contrast.</li>
+          <li><strong>Emergency Access:</strong> 999 / 16263 helplines visible prior to login.</li>
         </ul>
       </div>
 
@@ -913,7 +928,7 @@ html_content = """<!DOCTYPE html>
       </div>
     </div>
     <div class="meta-pills">
-      <span class="pill highlight">Screen 2 of 9</span>
+      <span class="pill highlight">Screen 2 of 12</span>
       <span class="pill">Core Command Center</span>
     </div>
   </div>
@@ -1084,7 +1099,7 @@ html_content = """<!DOCTYPE html>
       </div>
     </div>
     <div class="meta-pills">
-      <span class="pill highlight">Screen 3 of 9</span>
+      <span class="pill highlight">Screen 3 of 12</span>
       <span class="pill">EHR & Demographics</span>
     </div>
   </div>
@@ -1237,7 +1252,7 @@ html_content = """<!DOCTYPE html>
       </div>
     </div>
     <div class="meta-pills">
-      <span class="pill highlight">Screen 4 of 9</span>
+      <span class="pill highlight">Screen 4 of 12</span>
       <span class="pill">Medication Safety</span>
     </div>
   </div>
@@ -1387,7 +1402,7 @@ html_content = """<!DOCTYPE html>
       </div>
     </div>
     <div class="meta-pills">
-      <span class="pill highlight">Screen 5 of 9</span>
+      <span class="pill highlight">Screen 5 of 12</span>
       <span class="pill">Prescription Input</span>
     </div>
   </div>
@@ -1505,7 +1520,7 @@ html_content = """<!DOCTYPE html>
       </div>
     </div>
     <div class="meta-pills">
-      <span class="pill highlight">Screen 6 of 9</span>
+      <span class="pill highlight">Screen 6 of 12</span>
       <span class="pill">Clinical Scheduling</span>
     </div>
   </div>
@@ -1648,7 +1663,7 @@ html_content = """<!DOCTYPE html>
       </div>
     </div>
     <div class="meta-pills">
-      <span class="pill highlight">Screen 7 of 9</span>
+      <span class="pill highlight">Screen 7 of 12</span>
       <span class="pill">Daily Routine Checklist</span>
     </div>
   </div>
@@ -1798,7 +1813,7 @@ html_content = """<!DOCTYPE html>
       </div>
     </div>
     <div class="meta-pills">
-      <span class="pill highlight">Screen 8 of 9</span>
+      <span class="pill highlight">Screen 8 of 12</span>
       <span class="pill">Caregiver Coordination</span>
     </div>
   </div>
@@ -1887,7 +1902,7 @@ html_content = """<!DOCTYPE html>
                   "Patient complained of mild stiffness in left knee joint after morning stroll. Administered 10 min warm compress. Appetite normal; consumed all breakfast. Blood sugar measured at 110 mg/dL."
                 </div>
                 <div style="display:flex; gap:6px;">
-                  <input type="text" placeholder="Add clinical observation note for shift handoff..." style="flex:1; padding:5px 8px; border:1px solid #CBD5E1; border-radius:5px; font-size:10.5px;">
+                  <input type="text" placeholder="Add shift handoff note..." style="flex:1; padding:5px 8px; border:1px solid #CBD5E1; border-radius:5px; font-size:10.5px;">
                   <button class="btn-hf btn-primary" style="padding:5px 10px; font-size:10px;">Post</button>
                 </div>
               </div>
@@ -1935,7 +1950,7 @@ html_content = """<!DOCTYPE html>
     </div>
     <div class="meta-pills">
       <span class="pill" style="background:#FFE4E6; color:#9F1239; border-color:#FECDD3;">Critical Safety Protocol</span>
-      <span class="pill">Screen 9 of 9</span>
+      <span class="pill">Screen 9 of 12</span>
     </div>
   </div>
 
@@ -2071,6 +2086,469 @@ html_content = """<!DOCTYPE html>
   </div>
 </div>
 
+<!-- PAGE 12: SCREEN 10 - SENIOR RESIDENT DASHBOARD -->
+<div class="page">
+  <div class="page-nav-bar">
+    <div class="brand-badge">
+      <div class="brand-logo-icon" style="background:linear-gradient(135deg, #D97706, #B45309);">SR</div>
+      <div class="page-title-group">
+        <h1>12. Screen 10: Senior Resident Accessible Dashboard</h1>
+        <p>WCAG AAA dedicated senior portal featuring ≥14pt (18.67px) text, large ≥56px buttons, med reminders &amp; 999 SOS</p>
+      </div>
+    </div>
+    <div class="meta-pills">
+      <span class="pill highlight">Screen 10 of 12</span>
+      <span class="pill" style="background:#FEF3C7; color:#92400E; border-color:#FCD34D;">Senior WCAG AAA UI</span>
+    </div>
+  </div>
+
+  <div class="screen-layout">
+    <div class="mockup-frame" style="background:#0B1120; border-color:#334155;">
+      <div class="mockup-chrome" style="background:#0F172A; border-color:#1E293B; color:#CBD5E1;">
+        <div class="window-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <div class="mockup-url" style="background:#1E293B; border-color:#334155; color:#94A3B8;">https://elderlycare.portal/senior-ui</div>
+        <span class="badge-hf" style="background:#FEF3C7; color:#92400E;">SENIOR RESIDENT MODE • 14pt+</span>
+      </div>
+      <div class="app-shell" style="background:#0B1120; color:#F8FAFC; flex-direction:column; padding:12px 16px; gap:10px;">
+        <!-- Friendly Senior Header -->
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1E293B; padding-bottom:8px;">
+          <div>
+            <div style="font-size:20px; font-weight:800; color:#FFFFFF;">Hello, Alhaj Shamsuddin Sahib!</div>
+            <div style="font-size:14pt; color:#CBD5E1; line-height:1.3;">Suite 204 (Padma Wing) &bull; Nurse on Duty: <strong style="color:#34D399;">Fatema Begum (RN)</strong></div>
+          </div>
+          <div style="background:#1E293B; border:1px solid #334155; padding:6px 12px; border-radius:8px; text-align:right;">
+            <div style="font-size:10px; color:#94A3B8; font-weight:700;">ACCESSIBILITY FLOOR</div>
+            <div style="font-size:12px; color:#5EEAD4; font-weight:800;">Min Body: 14pt (18.67px)</div>
+          </div>
+        </div>
+
+        <!-- Giant SOS Banner -->
+        <div style="background:radial-gradient(circle at center, #7F1D1D 0%, #450A0A 100%); border:2px solid #EF4444; border-radius:12px; padding:10px 16px; display:flex; align-items:center; justify-content:space-between; gap:14px;">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div style="width:76px; height:76px; border-radius:50%; background:linear-gradient(135deg, #EF4444, #B91C1C); border:3px solid #FFFFFF; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 0 18px rgba(239,68,68,0.8); flex-shrink:0;">
+              <span style="font-size:17px; font-weight:900; color:#FFFFFF; line-height:1;">HELP</span>
+              <span style="font-size:9px; font-weight:700; color:#FECACA;">SOS 999</span>
+            </div>
+            <div>
+              <div style="font-size:17px; font-weight:800; color:#FFFFFF;">Need Immediate Medical Help or Nurse Assistance?</div>
+              <div style="font-size:14pt; color:#FECACA;">Tap once to alert Nurse Station &amp; Son Tanvir (5-sec cancel countdown prevents accidents).</div>
+            </div>
+          </div>
+          <button style="background:#FFFFFF; color:#991B1B; border:none; border-radius:999px; padding:10px 16px; font-size:13px; font-weight:800; min-height:48px; white-space:nowrap;">
+            ✕ 5s CANCEL GUARD
+          </button>
+        </div>
+
+        <!-- Large Touch Cards Row -->
+        <div style="display:grid; grid-template-columns:1.18fr 1.12fr 0.9fr; flex:1; gap:10px;">
+          <!-- My Medicines Today -->
+          <div style="background:#0F172A; border:2px solid #10B981; border-radius:10px; padding:10px; display:flex; flex-direction:column; gap:7px;">
+            <div style="font-size:16px; font-weight:800; color:#34D399;">💊 My Medicines Today</div>
+            <div style="background:#064E3B; border:1px solid #10B981; border-radius:8px; padding:8px 10px; display:flex; justify-content:space-between; align-items:center; gap:6px;">
+              <div>
+                <div style="font-size:14pt; font-weight:800; color:#FFFFFF; line-height:1.15;">Tab. Comet 500mg</div>
+                <div style="font-size:14pt; color:#A7F3D0; line-height:1.2;">08:30 AM • Morning</div>
+              </div>
+              <span style="font-size:13px; color:#34D399; font-weight:800; white-space:nowrap;">✓ TAKEN</span>
+            </div>
+            <div style="background:#1E293B; border:1px solid #475569; border-radius:8px; padding:8px 10px; display:flex; justify-content:space-between; align-items:center; gap:6px;">
+              <div>
+                <div style="font-size:14pt; font-weight:800; color:#FFFFFF; line-height:1.15;">Tab. Camlosart 5/20</div>
+                <div style="font-size:14pt; color:#FCD34D; line-height:1.2;">08:30 PM • Tap to mark</div>
+              </div>
+              <span style="padding:4px 7px; border-radius:6px; background:#F59E0B; color:#0F172A; font-size:10px; font-weight:800; white-space:nowrap;">DUE</span>
+            </div>
+          </div>
+
+          <!-- Daily Schedule -->
+          <div style="background:#0F172A; border:2px solid #38BDF8; border-radius:10px; padding:10px; display:flex; flex-direction:column; gap:7px;">
+            <div style="font-size:16px; font-weight:800; color:#38BDF8;">📅 Today's Routine</div>
+            <div style="background:#1E293B; border-left:4px solid #10B981; padding:6px 9px; border-radius:6px;">
+              <div style="font-size:14pt; font-weight:700; color:#FFFFFF; line-height:1.15;">08:30 AM • Breakfast &amp; BP</div>
+              <div style="font-size:14pt; color:#CBD5E1; line-height:1.2;">Tray with morning meds</div>
+            </div>
+            <div style="background:#1E293B; border-left:4px solid #38BDF8; padding:6px 9px; border-radius:6px;">
+              <div style="font-size:14pt; font-weight:700; color:#FFFFFF; line-height:1.15;">11:00 AM • Courtyard Walk</div>
+              <div style="font-size:14pt; color:#CBD5E1; line-height:1.2;">15-min gentle stretch</div>
+            </div>
+            <div style="background:#1E293B; border-left:4px solid #A855F7; padding:6px 9px; border-radius:6px;">
+              <div style="font-size:14pt; font-weight:700; color:#FFFFFF; line-height:1.15;">03:30 PM • Video Call</div>
+              <div style="font-size:14pt; color:#CBD5E1; line-height:1.2;">Call Son Tanvir</div>
+            </div>
+          </div>
+
+          <!-- Giant Speed Dial Buttons -->
+          <div style="background:#0F172A; border:2px solid #A855F7; border-radius:10px; padding:10px; display:flex; flex-direction:column; gap:10px;">
+            <div style="font-size:16px; font-weight:800; color:#C084FC;">📞 1-Tap Speed Dial</div>
+            <div style="font-size:14pt; color:#E2E8F0; line-height:1.25;">Direct audio dial with large buttons:</div>
+            <div style="display:flex; flex-direction:column; gap:10px; margin-top:auto;">
+              <button style="background:linear-gradient(135deg, #7C3AED, #6D28D9); color:#FFFFFF; border:none; border-radius:10px; min-height:58px; font-size:14pt; font-weight:800; cursor:pointer;">
+                📞 Call Son Tanvir
+              </button>
+              <button style="background:linear-gradient(135deg, #0284C7, #0369A1); color:#FFFFFF; border:none; border-radius:10px; min-height:58px; font-size:14pt; font-weight:800; cursor:pointer;">
+                💗 Call Duty Nurse
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specs Sidebar -->
+    <div class="specs-sidebar">
+      <div class="spec-card">
+        <h3>Senior Accessibility</h3>
+        <p>Built exclusively for aging eyes and motor-impaired hands using WCAG AAA high-contrast dark slate surfaces and oversized action controls.</p>
+      </div>
+
+      <div class="spec-card">
+        <h3>Typography &amp; Safety</h3>
+        <ul>
+          <li><strong>14pt (18.67px) Floor:</strong> Zero microscopic text; all body reminders scale ≥14pt.</li>
+          <li><strong>Large Touch Buttons:</strong> Speed dial &amp; SOS targets exceed 56px–76px height.</li>
+          <li><strong>Accidental Tap Guard:</strong> 5-second audible beep countdown before dispatching 999 SOS.</li>
+        </ul>
+      </div>
+
+      <div class="spec-card">
+        <h3>WCAG Tokens</h3>
+        <span class="token-tag">14pt / 18.67px Body</span>
+        <span class="token-tag">≥56px Buttons</span>
+        <span class="token-tag">7:1 Contrast</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 13: SCREEN 11 - PHYSICIAN PORTAL -->
+<div class="page">
+  <div class="page-nav-bar">
+    <div class="brand-badge">
+      <div class="brand-logo-icon" style="background:linear-gradient(135deg, #0284C7, #1D4ED8);">MD</div>
+      <div class="page-title-group">
+        <h1>13. Screen 11: Physician Clinical EHR &amp; Consultation Portal</h1>
+        <p>Dedicated MD workspace for longitudinal EHR review, e-prescribing, allergy checks &amp; video teleconsultations</p>
+      </div>
+    </div>
+    <div class="meta-pills">
+      <span class="pill highlight">Screen 11 of 12</span>
+      <span class="pill" style="background:#DBEAFE; color:#1E40AF; border-color:#93C5FD;">DOCTOR Role Portal</span>
+    </div>
+  </div>
+
+  <div class="screen-layout">
+    <div class="mockup-frame">
+      <div class="mockup-chrome">
+        <div class="window-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <div class="mockup-url">https://elderlycare.portal/physician-ehr</div>
+        <span class="badge-hf badge-blue">🩺 BMDC Verified • Dr. Hasan (FCPS)</span>
+      </div>
+      <div class="app-shell">
+        <!-- Physician Patient Queue Sidebar -->
+        <div class="app-sidebar" style="width:165px;">
+          <div>
+            <div class="nav-header">
+              <div class="nav-logo-box" style="background:#0284C7;">MD</div>
+              <span style="font-size:11.5px; font-weight:800; color:white;">Physician EHR</span>
+            </div>
+            <div style="font-size:9.5px; text-transform:uppercase; color:#64748B; padding:2px 6px 5px; font-weight:700;">Select Resident</div>
+            <div class="nav-menu">
+              <div class="nav-link active" style="background:#0284C7; flex-direction:column; align-items:flex-start; gap:1px;">
+                <span style="font-size:10.5px;">Shamsuddin Ahmed</span>
+                <span style="font-size:8.5px; color:#BAE6FD;">BD-MRN-90210 • Suite 204</span>
+              </div>
+              <div class="nav-link" style="flex-direction:column; align-items:flex-start; gap:1px;">
+                <span style="font-size:10.5px;">Begum Rokeya C.</span>
+                <span style="font-size:8.5px; color:#64748B;">BD-MRN-90211 • Suite 108</span>
+              </div>
+              <div class="nav-link" style="flex-direction:column; align-items:flex-start; gap:1px;">
+                <span style="font-size:10.5px;">Kazi Nurul Huda</span>
+                <span style="font-size:8.5px; color:#64748B;">BD-MRN-90212 • Suite 312</span>
+              </div>
+              <div class="nav-link" style="flex-direction:column; align-items:flex-start; gap:1px;">
+                <span style="font-size:10.5px;">Sultana Razia B.</span>
+                <span style="font-size:8.5px; color:#64748B;">BD-MRN-90213 • Suite 102</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding:6px; background:rgba(56,189,248,0.12); border-radius:6px; font-size:9.5px; color:#BAE6FD;">
+            Active Patient Load: <strong>4 Residents</strong>
+          </div>
+        </div>
+
+        <div class="app-main">
+          <div class="app-topbar">
+            <div>
+              <span style="font-size:12px; font-weight:800; color:var(--slate-900);">Geriatric Clinical EHR Console</span>
+              <span style="font-size:10.5px; color:var(--slate-600); margin-left:6px;">Prof. Dr. Syed Rafiqul Hasan, MBBS, FCPS</span>
+            </div>
+            <div style="display:flex; gap:6px;">
+              <button class="btn-hf btn-secondary" style="padding:4px 9px; font-size:10.5px;">📅 Schedule Consult</button>
+              <button class="btn-hf btn-primary" style="padding:4px 10px; font-size:10.5px;">💊 + Prescribe Medication</button>
+            </div>
+          </div>
+
+          <div class="app-content" style="gap:8px;">
+            <!-- EHR Banner with Drug Allergies -->
+            <div class="card-hf" style="border-left:4px solid #0284C7; padding:8px 12px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <div>
+                  <strong style="font-size:13px; color:var(--slate-900);">Alhaj Mohammad Shamsuddin Ahmed</strong>
+                  <span style="font-size:10px; color:var(--slate-600); margin-left:6px;">MRN: BD-MRN-90210 &bull; Blood: <strong>B+</strong> &bull; DOB: 1948-02-15</span>
+                </div>
+                <span class="badge-hf badge-red">⚠ ALLERGY: Penicillin, Sulfa Drugs</span>
+              </div>
+              <div style="font-size:10.5px; color:var(--slate-700);">
+                <strong>Chronic Conditions:</strong> Type 2 Diabetes Mellitus, Stage 1 Hypertension, CKD Stage 2 &nbsp;|&nbsp;
+                <strong>Guardian:</strong> Tanvir Ahmed (+880 1712-889900)
+              </div>
+            </div>
+
+            <!-- Vitals Log + Consultations Grid -->
+            <div class="grid-2" style="flex:1;">
+              <div class="card-hf" style="padding:8px 10px;">
+                <div class="card-header-hf" style="margin-bottom:5px; padding-bottom:4px; gap:8px;">
+                  <h4>Physiological Vitals Telemetry</h4>
+                  <span class="badge-hf badge-red" style="white-space:nowrap;">1 Anomaly</span>
+                </div>
+                <table style="width:100%; font-size:9.5px; border-collapse:collapse;">
+                  <tr style="background:#F1F5F9; text-align:left;">
+                    <th style="padding:3px 5px; white-space:nowrap;">BP</th><th style="padding:3px 5px;">Pulse</th><th style="padding:3px 5px;">SpO2</th><th style="padding:3px 5px;">Glucose</th><th style="padding:3px 5px;">Status</th>
+                  </tr>
+                  <tr style="background:#FFF1F2; border-bottom:1px solid #E2E8F0;">
+                    <td style="padding:4px 5px; white-space:nowrap;"><strong>144 / 92</strong></td><td style="white-space:nowrap; padding:4px 5px;">86 bpm</td><td style="padding:4px 5px;">95%</td><td style="white-space:nowrap; padding:4px 5px;">148 mg/dL</td>
+                    <td style="padding:4px 5px;"><span class="badge-hf badge-red" style="font-size:8px; padding:1px 5px; white-space:nowrap;">Hypertensive</span></td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #E2E8F0;">
+                    <td style="padding:4px 5px; white-space:nowrap;">125 / 82</td><td style="white-space:nowrap; padding:4px 5px;">74 bpm</td><td style="padding:4px 5px;">97%</td><td style="white-space:nowrap; padding:4px 5px;">126 mg/dL</td>
+                    <td style="padding:4px 5px;"><span class="badge-hf badge-green" style="font-size:8px; padding:1px 5px;">Optimal</span></td>
+                  </tr>
+                  <tr>
+                    <td style="padding:4px 5px; white-space:nowrap;">122 / 80</td><td style="white-space:nowrap; padding:4px 5px;">72 bpm</td><td style="padding:4px 5px;">98%</td><td style="white-space:nowrap; padding:4px 5px;">112 mg/dL</td>
+                    <td style="padding:4px 5px;"><span class="badge-hf badge-green" style="font-size:8px; padding:1px 5px;">Optimal</span></td>
+                  </tr>
+                </table>
+
+                <div style="margin-top:8px; padding-top:6px; border-top:1px solid #E2E8F0;">
+                  <div style="font-size:10.5px; font-weight:700; margin-bottom:4px;">Scheduled Consultations</div>
+                  <div style="background:#EFF6FF; border:1px solid #BFDBFE; border-radius:6px; padding:6px 8px; display:flex; justify-content:space-between; align-items:center; gap:8px;">
+                    <div>
+                      <div style="font-size:10px; font-weight:700; color:#1E3A8A;">Video Teleconsult &bull; Tomorrow 10:30 AM</div>
+                      <div style="font-size:9px; color:#1E40AF;">Glycemic &amp; BP titration (BSMMU/BIRDEM)</div>
+                    </div>
+                    <button class="btn-hf btn-primary" style="background:#2563EB; padding:4px 8px; font-size:9.5px; white-space:nowrap;">🎥 Launch Jitsi</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Active Prescriptions + Auto eMAR Sync -->
+              <div class="card-hf" style="padding:8px 10px;">
+                <div class="card-header-hf" style="margin-bottom:5px; padding-bottom:4px; gap:8px;">
+                  <h4>Active MD Prescriptions</h4>
+                  <span style="font-size:9.5px; color:var(--primary-dark); font-weight:700; white-space:nowrap;">Auto-Syncs to eMAR ✓</span>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:5px; font-size:10px;">
+                  <div style="padding:5px 8px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:6px;">
+                    <div style="display:flex; justify-content:space-between;"><strong>Tab. Comet 500mg (Metformin)</strong><span class="badge-hf badge-green" style="font-size:8.5px;">500 mg</span></div>
+                    <div style="color:var(--slate-600); font-size:9px;">Twice daily post-meal &bull; Schedule: 08:30, 20:30</div>
+                  </div>
+                  <div style="padding:5px 8px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:6px;">
+                    <div style="display:flex; justify-content:space-between;"><strong>Tab. Camlosart 5/20</strong><span class="badge-hf badge-green" style="font-size:8.5px;">5/20 mg</span></div>
+                    <div style="color:var(--slate-600); font-size:9px;">Once daily morning &bull; Verify BP before dose</div>
+                  </div>
+                  <div style="padding:5px 8px; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:6px;">
+                    <div style="display:flex; justify-content:space-between;"><strong>Tab. Rosuva 10mg</strong><span class="badge-hf badge-green" style="font-size:8.5px;">10 mg</span></div>
+                    <div style="color:var(--slate-600); font-size:9px;">Once daily bedtime &bull; Schedule: 22:00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specs Sidebar -->
+    <div class="specs-sidebar">
+      <div class="spec-card">
+        <h3>Clinical MD Authority</h3>
+        <p>Separates physician ordering workflows from nurse execution. Doctors review longitudinal trends before issuing new prescriptions.</p>
+      </div>
+
+      <div class="spec-card">
+        <h3>Physician Capabilities</h3>
+        <ul>
+          <li><strong>Allergy Guardrail:</strong> High-contrast drug allergy banner pinned atop EHR header.</li>
+          <li><strong>Order-to-eMAR Sync:</strong> Prescribing creates timed <code>PENDING</code> slots for duty nurses.</li>
+          <li><strong>Integrated Telehealth:</strong> One-click encrypted Jitsi Meet video consultation rooms.</li>
+        </ul>
+      </div>
+
+      <div class="spec-card">
+        <h3>Clinical Tokens</h3>
+        <span class="token-tag">#0284C7 Medical Blue</span>
+        <span class="token-tag">EHR Timeline</span>
+        <span class="token-tag">Jitsi Telehealth</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 14: SCREEN 12 - ADMINISTRATOR DASHBOARD -->
+<div class="page">
+  <div class="page-nav-bar">
+    <div class="brand-badge">
+      <div class="brand-logo-icon" style="background:linear-gradient(135deg, #334155, #0F172A);">AD</div>
+      <div class="page-title-group">
+        <h1>14. Screen 12: Administrator Governance, RBAC &amp; Audit Dashboard</h1>
+        <p>Enterprise system monitoring KPIs, user lifecycle provisioning, RBAC permissions matrix &amp; HIPAA audit logs</p>
+      </div>
+    </div>
+    <div class="meta-pills">
+      <span class="pill highlight">Screen 12 of 12</span>
+      <span class="pill">ADMIN Role Portal</span>
+    </div>
+  </div>
+
+  <div class="screen-layout">
+    <div class="mockup-frame">
+      <div class="mockup-chrome">
+        <div class="window-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>
+        <div class="mockup-url">https://elderlycare.portal/admin-governance</div>
+        <span class="badge-hf badge-green">● Telemetry Socket Online</span>
+      </div>
+      <div class="app-shell">
+        <div class="app-sidebar">
+          <div>
+            <div class="nav-header">
+              <div class="nav-logo-box" style="background:#475569;">AD</div>
+              <span style="font-size:11.5px; font-weight:800; color:white;">ECMS Admin</span>
+            </div>
+            <div class="nav-menu">
+              <div class="nav-link active" style="background:#334155;">📈 System KPIs</div>
+              <div class="nav-link">👥 User Accounts</div>
+              <div class="nav-link">🔐 Role Permissions</div>
+              <div class="nav-link">📜 HIPAA Audit Logs</div>
+              <div class="nav-link" style="color:#FDA4AF;">🚨 SOS Dispatches</div>
+            </div>
+          </div>
+          <div style="padding:6px; background:rgba(255,255,255,0.06); border-radius:6px; font-size:9.5px;">
+            <div style="color:#94A3B8;">Director</div>
+            <div style="color:#5EEAD4; font-weight:bold;">Engr. Tariqul Islam</div>
+          </div>
+        </div>
+
+        <div class="app-main">
+          <div class="app-topbar">
+            <strong style="font-size:12px; color:var(--slate-900);">National Elderly Care Administration &amp; Audit Intelligence</strong>
+            <div style="display:flex; gap:6px;">
+              <button class="btn-hf btn-secondary" style="padding:4px 9px; font-size:10px;">⬇ Export Audit Trail (JSON)</button>
+              <button class="btn-hf btn-primary" style="padding:4px 9px; font-size:10px;">+ Add New User</button>
+            </div>
+          </div>
+
+          <div class="app-content" style="gap:8px;">
+            <!-- System Monitoring KPIs -->
+            <div class="grid-4">
+              <div class="stat-card-hf" style="padding:6px 10px;">
+                <div style="font-size:9px; color:var(--slate-400); font-weight:700;">TOTAL SENIORS</div>
+                <div style="font-size:16px; font-weight:800;">4 <span style="font-size:9.5px; color:var(--emerald-600);">Active</span></div>
+              </div>
+              <div class="stat-card-hf" style="padding:6px 10px;">
+                <div style="font-size:9px; color:var(--slate-400); font-weight:700;">VITALS TELEMETRY</div>
+                <div style="font-size:16px; font-weight:800;">5 <span style="font-size:9.5px; color:var(--rose-600);">(1 Anomaly)</span></div>
+              </div>
+              <div class="stat-card-hf" style="padding:6px 10px;">
+                <div style="font-size:9px; color:var(--slate-400); font-weight:700;">MAR ADHERENCE</div>
+                <div style="font-size:16px; font-weight:800; color:var(--primary-dark);">96.4%</div>
+              </div>
+              <div class="stat-card-hf" style="padding:6px 10px;">
+                <div style="font-size:9px; color:var(--slate-400); font-weight:700;">EMERGENCY ALERTS</div>
+                <div style="font-size:16px; font-weight:800;">0 <span style="font-size:9.5px; color:var(--slate-600);">Active</span></div>
+              </div>
+            </div>
+
+            <!-- RBAC Users Table + Permissions & Audit Split -->
+            <div class="grid-2" style="flex:1;">
+              <div class="card-hf" style="padding:8px 10px;">
+                <div class="card-header-hf" style="margin-bottom:5px; padding-bottom:4px;">
+                  <h4>RBAC System User Management (5 Accounts)</h4>
+                </div>
+                <table style="width:100%; font-size:9.2px; border-collapse:collapse;">
+                  <tr style="background:#F1F5F9; text-align:left;">
+                    <th style="padding:3px;">User</th><th style="padding:3px;">Role</th><th style="padding:3px;">Status</th><th style="padding:3px;">Control</th>
+                  </tr>
+                  <tr style="border-bottom:1px solid #E2E8F0;">
+                    <td style="padding:3.5px;"><strong>Engr. Tariqul Islam</strong></td><td>ADMIN</td><td><span class="badge-hf badge-green" style="font-size:8px; padding:1px 5px;">ACTIVE</span></td><td style="color:var(--slate-400);">Current Session</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #E2E8F0;">
+                    <td style="padding:3.5px;">Prof. Dr. S. R. Hasan</td><td>DOCTOR</td><td><span class="badge-hf badge-green" style="font-size:8px; padding:1px 5px;">ACTIVE</span></td><td><span class="badge-hf badge-red" style="font-size:8px; padding:1px 5px;">Terminate</span></td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #E2E8F0;">
+                    <td style="padding:3.5px;">Fatema Begum (RN)</td><td>CAREGIVER</td><td><span class="badge-hf badge-green" style="font-size:8px; padding:1px 5px;">ACTIVE</span></td><td><span class="badge-hf badge-red" style="font-size:8px; padding:1px 5px;">Terminate</span></td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #E2E8F0;">
+                    <td style="padding:3.5px;">Tanvir Ahmed</td><td>GUARDIAN</td><td><span class="badge-hf badge-green" style="font-size:8px; padding:1px 5px;">ACTIVE</span></td><td><span class="badge-hf badge-red" style="font-size:8px; padding:1px 5px;">Terminate</span></td>
+                  </tr>
+                  <tr>
+                    <td style="padding:3.5px;">Shamsuddin Ahmed</td><td>SENIOR</td><td><span class="badge-hf badge-green" style="font-size:8px; padding:1px 5px;">ACTIVE</span></td><td><span class="badge-hf badge-red" style="font-size:8px; padding:1px 5px;">Terminate</span></td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="card-hf" style="padding:8px 10px;">
+                <div class="card-header-hf" style="margin-bottom:5px; padding-bottom:4px;">
+                  <h4>Role Permissions &amp; HIPAA Audit Trail</h4>
+                </div>
+                <table style="width:100%; font-size:8.5px; border-collapse:collapse; margin-bottom:6px;">
+                  <tr style="background:#0F172A; color:white; text-align:center;">
+                    <th style="padding:3px 5px; text-align:left;">Module</th><th style="padding:3px 5px;">Admin</th><th style="padding:3px 5px;">Doctor</th><th style="padding:3px 5px;">Nurse</th><th style="padding:3px 5px;">Senior</th><th style="padding:3px 5px;">Family</th>
+                  </tr>
+                  <tr style="border-bottom:1px solid #E2E8F0; text-align:center;">
+                    <td style="padding:3px 5px; text-align:left;">EHR / Prescribe</td><td>✓</td><td>✓</td><td>MAR Only</td><td>Self View</td><td>Monitor</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid #E2E8F0; text-align:center;">
+                    <td style="padding:3px 5px; text-align:left;">Users / Audit Log</td><td>✓ Full</td><td>—</td><td>—</td><td>—</td><td>—</td>
+                  </tr>
+                </table>
+                <div style="font-size:9px; display:flex; flex-direction:column; gap:3px;">
+                  <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:4px; padding:3px 6px;"><strong>USER_LOGIN:</strong> dr.hasan@probin.org.bd &bull; Authenticated via JWT</div>
+                  <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:4px; padding:3px 6px;"><strong>VITALS_RECORDED:</strong> Fatema Begum &bull; Anomaly Flagged (144/92)</div>
+                  <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:4px; padding:3px 6px;"><strong>SOS_RESOLVED:</strong> Emergency #1 closed with clinical note</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Specs Sidebar -->
+    <div class="specs-sidebar">
+      <div class="spec-card">
+        <h3>Governance &amp; Security</h3>
+        <p>Enforces strict RBAC least-privilege isolation, account lifecycle termination/reactivation, and immutable compliance auditing.</p>
+      </div>
+
+      <div class="spec-card">
+        <h3>Admin Capabilities</h3>
+        <ul>
+          <li><strong>System Monitoring:</strong> Real-time resident census, vitals anomalies &amp; MAR rate.</li>
+          <li><strong>Self-Lockout Guard:</strong> Admin cannot terminate their own active session.</li>
+          <li><strong>Audit Export:</strong> One-click downloadable HIPAA JSON compliance trail.</li>
+        </ul>
+      </div>
+
+      <div class="spec-card">
+        <h3>Governance Tokens</h3>
+        <span class="token-tag">JWT RBAC</span>
+        <span class="token-tag">Audit JSON</span>
+        <span class="token-tag">System KPIs</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
 """
@@ -2079,3 +2557,20 @@ with open("high_fidelity_design.html", "w", encoding="utf-8") as f:
     f.write(html_content)
 
 print("Generated high_fidelity_design.html successfully.")
+
+chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+if os.path.exists(chrome_path):
+    pdf_path = os.path.abspath("Elderly_Care_Management_System_High_Fidelity_Design.pdf")
+    html_url = "file:///" + os.path.abspath("high_fidelity_design.html").replace("\\", "/")
+    cmd = [
+        chrome_path,
+        "--headless=new",
+        "--disable-gpu",
+        "--no-sandbox",
+        "--virtual-time-budget=8000",
+        "--no-pdf-header-footer",
+        f"--print-to-pdf={pdf_path}",
+        html_url,
+    ]
+    subprocess.run(cmd, check=True, timeout=60)
+    print(f"Generated {pdf_path} successfully.")
