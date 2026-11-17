@@ -1,0 +1,25 @@
+{
+    "name":  "mysql-crud-backend",
+    "version":  "1.0.0",
+    "description":  "ECMS Node.js + MySQL CRUD Backend",
+    "main":  "server.js",
+    "scripts":  {
+                    "test":  "echo \u0027No tests yet\u0027",
+                    "dev":  "node --watch server.js",
+                    "start":  "node server.js"
+                },
+    "keywords":  [
+
+                 ],
+    "author":  "",
+    "license":  "ISC",
+    "type":  "commonjs",
+    "dependencies":  {
+                         "bcryptjs":  "^3.0.3",
+                         "cors":  "^2.8.6",
+                         "dotenv":  "^18.0.10",
+                         "express":  "^5.3.0",
+                         "jsonwebtoken":  "^9.0.3",
+                         "mysql2":  "^3.24.6"
+                     }
+}
