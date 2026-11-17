@@ -1,8 +1,9 @@
 import { handleDemoRequest, createDemoEmergencyWebSocket } from './demoData';
 
 // ECMS Centralized API & Real-time WebSocket Client
-const BASE_URL = 'http://localhost:8000/api/v1';
-const WS_URL = 'ws://localhost:8000/ws/emergency';
+// Node.js MySQL backend runs on port 5000
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const WS_URL = (import.meta.env.VITE_WS_URL || 'ws://localhost:5000/ws') + '/emergency';
 
 function isLocalHost() {
   if (typeof window === 'undefined') return false;
@@ -10,7 +11,14 @@ function isLocalHost() {
   return host === 'localhost' || host === '127.0.0.1';
 }
 
-let useDemoFallback = !isLocalHost();
+// On localhost, always talk directly to MySQL backend and purge stale mock demo store
+if (typeof window !== 'undefined' && isLocalHost()) {
+  try {
+    localStorage.removeItem('ecms_demo_store_v1');
+  } catch (e) {}
+}
+
+let useDemoFallback = !isLocalHost() && !import.meta.env.VITE_API_URL;
 
 function getStoredToken() {
   return localStorage.getItem('ecms_token') || '';
@@ -60,7 +68,10 @@ async function request(endpoint, options = {}) {
       headers,
     });
   } catch (networkErr) {
-    // Backend server is offline locally -> seamlessly fall back to built-in demo store
+    if (isLocalHost()) {
+      console.error(`[Backend Connection Error] Failed to reach MySQL API at ${BASE_URL}${endpoint}.`, networkErr);
+      throw new Error(`Cannot connect to MySQL backend at ${BASE_URL}. Ensure Node.js server is running.`);
+    }
     useDemoFallback = true;
     return handleDemoRequest(endpoint, options);
   }

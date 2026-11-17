@@ -139,8 +139,8 @@ router.get('/users', async (_req, res) => {
 /* ── PATCH /api/auth/users/:id/status ─ UPDATE ─── */
 router.patch('/users/:id/status', async (req, res) => {
   const { status } = req.body;
-  if (!['ACTIVE', 'INACTIVE'].includes(status)) {
-    return res.status(400).json({ error: 'status must be ACTIVE or INACTIVE' });
+  if (!status) {
+    return res.status(400).json({ error: 'status is required' });
   }
 
   try {
