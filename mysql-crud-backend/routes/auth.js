@@ -153,6 +153,46 @@ router.patch('/users/:id/status', async (req, res) => {
   }
 });
 
+/* ── GET /api/auth/profile/:id ─── READ PROFILE ─ */
+router.get('/profile/:id', async (req, res) => {
+  try {
+    const [rows] = await pool.execute(
+      'SELECT id, email, full_name, role, phone, status, created_at FROM users WHERE id=?',
+      [req.params.id]
+    );
+    if (!rows[0]) return res.status(404).json({ error: 'User profile not found' });
+    return res.json(rows[0]);
+  } catch (err) {
+    console.error('Get profile error:', err);
+    return res.status(500).json({ error: 'Server error: ' + err.message });
+  }
+});
+
+/* ── PUT /api/auth/profile/:id ─── UPDATE PROFILE ─ */
+router.put('/profile/:id', async (req, res) => {
+  const { full_name, phone } = req.body;
+  if (!full_name || full_name.trim().length === 0) {
+    return res.status(400).json({ error: 'Full name is required' });
+  }
+
+  try {
+    const [result] = await pool.execute(
+      'UPDATE users SET full_name=?, phone=? WHERE id=?',
+      [full_name.trim(), phone || null, req.params.id]
+    );
+    if (result.affectedRows === 0) return res.status(404).json({ error: 'User not found' });
+
+    const [rows] = await pool.execute(
+      'SELECT id, email, full_name, role, phone, status, created_at FROM users WHERE id=?',
+      [req.params.id]
+    );
+    return res.json({ message: 'Profile updated successfully', user: rows[0] });
+  } catch (err) {
+    console.error('Update profile error:', err);
+    return res.status(500).json({ error: 'Server error: ' + err.message });
+  }
+});
+
 /* ── DELETE /api/auth/users/:id ─── DELETE ─── */
 router.delete('/users/:id', async (req, res) => {
   try {
